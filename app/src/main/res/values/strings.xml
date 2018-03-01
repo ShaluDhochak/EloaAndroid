@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">EloaAndroid</string>
+
+    <string name="signIn">Sign In</string>
+    <string name="signUp">Sign Up</string>
+    <string name="emailAddress">Email Address</string>
+    <string name="password">Password</string>
+    <string name="or">OR</string>
+    <string name="loginTwitter">Login with Twitter</string>
+    <string name="loginFB">Login with Facebook</string>
+    <string name="tryForFree">Try for Free</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
 </resources>
