@@ -12,11 +12,12 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal">
+
     <ImageView
-        android:id="@+id/menuLogo_iv"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        />
+       android:id="@+id/menuLogo_iv"
+       android:layout_width="25dp"
+       android:layout_height="25dp"
+       />
 
     <TextView
         android:id="@+id/meuHeading_tv"

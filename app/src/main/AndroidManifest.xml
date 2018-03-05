@@ -20,7 +20,10 @@
         <activity
             android:name=".View.Activity.HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".View.Activity.AllVideosActivity" />
+        <activity android:name=".View.Activity.StartRecordingActivity" />
+        <activity android:name=".View.Activity.MyProfileActivity"></activity>
     </application>
 
 </manifest>

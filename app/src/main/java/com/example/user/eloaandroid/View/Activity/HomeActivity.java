@@ -1,5 +1,6 @@
 package com.example.user.eloaandroid.View.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -76,11 +77,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_add_new_testimonial) {
-
+            Intent startRecordingIntent = new Intent(this, StartRecordingActivity.class );
+            startActivity(startRecordingIntent);
         } else if (id == R.id.nav_my_profile) {
 
+            Intent profileIntent = new Intent(this, MyProfileActivity.class);
+            startActivity(profileIntent);
         } else if (id == R.id.nav_videos) {
-
+            Intent intent = new Intent(this, AllVideosActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.eloaandroid.View.Activity.StartRecordingActivity">
+
+    <LinearLayout
+        android:id="@+id/startrecording_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4"
+        >
+    <RelativeLayout
+        android:id="@+id/startrecording_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blueColorCode"
+        android:layout_weight="1.5"
+        >
+
+        <TextView
+            android:id="@+id/startRecordingImage_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Recording"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:background="@drawable/round_corner_filled_rectangle"
+            android:layout_centerInParent="true"
+            />
+
+        <RelativeLayout
+            android:id="@+id/previous_rl"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_below="@+id/startRecordingImage_tv"
+            >
+
+            <TextView
+                android:id="@+id/previousStep_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previous Step"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/round_corner_filled_rectangle"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/playIcon_iv"
+                />
+
+            <ImageView
+                android:id="@+id/playIcon_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/back_arrow"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/skipThisStep_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skip This Step"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/round_corner_filled_rectangle"
+                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/playIcon_iv"
+                />
+
+        </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/instructionStartRecording_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:background="@color/lightBlueColorCode"
+            >
+
+            <TextView
+                android:id="@+id/instructionHeading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Step 1 Instructions:"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/instructionString_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instruction"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:lineSpacingExtra="4sp"
+                android:layout_below="@+id/instructionHeading_tv"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

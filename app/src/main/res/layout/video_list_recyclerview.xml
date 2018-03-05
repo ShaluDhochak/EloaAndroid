@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/videoListProfile_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="4sp"
+        app:cardElevation="4sp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <RelativeLayout
+            android:id="@+id/videoHeadingDetails_rl"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/blueColorCode"
+            >
+
+            <ImageView
+                android:id="@+id/profileImg_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@color/lightBlueColorCode"/>
+            <TextView
+                android:id="@+id/VideoHeading_txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profileImg_iv"
+                android:layout_marginTop="15sp"
+                android:textColor="@android:color/white"
+                android:text="@string/app_name"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/VideoSubHeading_txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profileImg_iv"
+                android:layout_below="@+id/VideoHeading_txtView"
+                android:layout_marginTop="5sp"
+                android:textColor="@android:color/white"
+                android:text="@string/app_name"
+                android:textSize="10sp"
+                />
+
+            <ImageView
+                android:id="@+id/shareOnYoutube_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/back_arrow"
+                android:layout_margin="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/Video_imgView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/videoHeadingDetails_rl"
+            android:src="@drawable/back_arrow"
+            />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <View
+        android:id="@+id/videoSeparator_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/videoListProfile_cardView"
+        android:background="@android:color/white"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/videoDescription_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/videoSeparator_view"
+        android:background="@drawable/video_details_box">
+        <RelativeLayout
+            android:id="@+id/showVideoDetails_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/videoDescriptionHeading_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video Description"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textColor="@color/blueColorCode"
+            />
+
+        <ImageView
+            android:id="@+id/showDetail_iv"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back_arrow"/>
+
+            <ImageView
+                android:id="@+id/hideDetail_iv"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_arrow"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/videoDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showVideoDetails_rl"
+            >
+            <View
+                android:id="@+id/separatorVideoDescription_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/textGreyColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/titleHeading_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title: "
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/separatorVideoDescription_view"
+                />
+
+            <TextView
+                android:id="@+id/titleDetail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/titleHeading_tv"
+                android:layout_below="@+id/separatorVideoDescription_view"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/textGreyColor"
+                android:textSize="12sp"/>
+            <View
+                android:id="@+id/separatorVideoDescription2_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/textGreyColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/titleDetail_tv"
+                />
+
+            <TextView
+                android:id="@+id/descriptionHeading_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description: "
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/separatorVideoDescription2_view"
+                />
+
+            <TextView
+                android:id="@+id/descriptionDetail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/descriptionHeading_tv"
+                android:layout_below="@+id/separatorVideoDescription2_view"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/textGreyColor"
+                android:textSize="12sp"/>
+
+            <View
+                android:id="@+id/separatorVideoDescription3_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/textGreyColor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/descriptionDetail_tv"
+                />
+
+            <TextView
+                android:id="@+id/keywordsHeading_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keywords: "
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/separatorVideoDescription3_view"
+                />
+
+            <TextView
+                android:id="@+id/keywordsDetail_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/keywordsHeading_tv"
+                android:layout_below="@+id/separatorVideoDescription3_view"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/textGreyColor"
+                android:textSize="12sp"/>
+            
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
