@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.eloaandroid.View.Activity.VideoDetailActivity">
+
+    <include android:id="@+id/profileHeader_layout"
+        layout="@layout/header_layout"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:id="@+id/videoDetail_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lightBlueColorCode">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/videoDetail_cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="4sp"
+                app:cardElevation="4sp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <RelativeLayout
+                        android:id="@+id/videoDetailHeadingDetails_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@color/blueColorCode"
+                        >
+
+                        <ImageView
+                            android:id="@+id/profileImgVideoDetail_iv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightBlueColorCode"/>
+                        <TextView
+                            android:id="@+id/VideoDetailHeading_txtView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
+                            android:layout_marginTop="15sp"
+                            android:textColor="@android:color/white"
+                            android:text="@string/app_name"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:id="@+id/VideoSubDetailHeading_txtView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
+                            android:layout_below="@+id/VideoDetailHeading_txtView"
+                            android:layout_marginTop="5sp"
+                            android:textColor="@android:color/white"
+                            android:text="@string/app_name"
+                            android:textSize="10sp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/shareOnYoutubeVideoDetail_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/back_arrow"
+                            android:layout_margin="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            />
+
+                    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/VideoDetail_imgView"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_below="@+id/videoDetailHeadingDetails_rl"
+                        android:src="@drawable/back_arrow"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:id="@+id/separtorBelowVideoDetail_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/videoDetail_cardView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/videoInfoHeading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/videoInfoPreview"
+                android:layout_below="@+id/separtorBelowVideoDetail_view"
+                android:textAlignment="center"
+                android:layout_margin="10dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:id="@+id/separtorBelowVideoInfo_view"
+                android:layout_width="190dp"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/videoInfoHeading_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_centerHorizontal="true"
+                />
+
+            <RelativeLayout
+                android:id="@+id/keywordVideoInfoPreview_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separtorBelowVideoInfo_view"
+                android:layout_margin="10dp"
+                android:background="@drawable/curved_textview">
+
+                <ImageView
+                    android:id="@+id/keywordsVideoDetail_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/back_arrow"
+                    />
+
+                <TextView
+                    android:id="@+id/keywordsHeading_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keywords"
+                    android:textColor="@android:color/black"
+                    android:layout_toRightOf="@+id/keywordsVideoDetail_iv"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/keywordsString_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Keyword1, Keyword2, Keyword3"
+                    android:textColor="@color/blueColorCode"
+                    android:layout_toRightOf="@+id/keywordsHeading_tv"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/videoTitleInfoPreview_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/keywordVideoInfoPreview_rl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/curved_textview">
+
+                <ImageView
+                    android:id="@+id/videoTitleDetail_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/back_arrow"
+                    />
+
+                <TextView
+                    android:id="@+id/videoTitleHeading_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/videoTitle"
+                    android:textColor="@android:color/black"
+                    android:layout_toRightOf="@+id/videoTitleDetail_iv"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/videoTitleString_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem Ipsum"
+                    android:textColor="@color/blueColorCode"
+                    android:layout_toRightOf="@+id/videoTitleHeading_tv"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/descriptionVideoInfoPreview_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/videoTitleInfoPreview_rl"
+                android:layout_margin="10dp"
+                android:background="@drawable/curved_textview">
+
+                <ImageView
+                    android:id="@+id/descriptionVideoTitleDetail_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/back_arrow"
+                    />
+
+                <TextView
+                    android:id="@+id/descriptionVideoTitleHeading_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textColor="@android:color/black"
+                    android:layout_toRightOf="@+id/descriptionVideoTitleDetail_iv"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/descriptionVideoTitleString_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instruction"
+                    android:textColor="@color/blueColorCode"
+                    android:layout_toRightOf="@+id/descriptionVideoTitleHeading_tv"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:lineSpacingExtra="4sp"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/locationVideoInfoPreview_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptionVideoInfoPreview_rl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/curved_textview">
+
+                <ImageView
+                    android:id="@+id/locationVideoTitleDetail_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/back_arrow"
+                    />
+
+                <TextView
+                    android:id="@+id/locationVideoTitleHeading_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location"
+                    android:textColor="@android:color/black"
+                    android:layout_toRightOf="@+id/locationVideoTitleDetail_iv"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/locationVideoTitleString_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="London, 2950125"
+                    android:textColor="@color/blueColorCode"
+                    android:layout_toRightOf="@+id/locationVideoTitleHeading_tv"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:lineSpacingExtra="4sp"
+                    />
+
+
+
+            </RelativeLayout>
+            
+            <View
+                android:id="@+id/separtorBelowVideoDetailInfo_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/locationVideoInfoPreview_rl"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/editVideoInfoHeading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/editVideoInfo"
+                android:layout_below="@+id/separtorBelowVideoDetailInfo_view"
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:id="@+id/separtorBelowEditVideoInfo_view"
+                android:layout_width="190dp"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/editVideoInfoHeading_tv"
+                android:layout_margin="10dp"
+                android:layout_centerHorizontal="true"
+                />
+            
+            <RelativeLayout
+                android:id="@+id/locationEditVideoInfo_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separtorBelowEditVideoInfo_view"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/locationIcon_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightBlueColor">
+                    <ImageView
+                        android:id="@+id/locationIcon_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/back_arrow"/>
+
+                    <TextView
+                        android:id="@+id/locationTextHeading_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location (City,State,Zip code) :"
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/locationIcon_iv"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/locationEditVideoInformation_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/locationIcon_rl"
+                    android:background="@color/blueColorCode"
+                    >
+                    <ImageView
+                        android:id="@+id/locationSideIcon_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/back_arrow"/>
+
+                    <EditText
+                        android:id="@+id/locationEditText_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ex, Detroit etc."
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@android:color/transparent"
+                        android:layout_toRightOf="@+id/locationSideIcon_iv"
+                        />
+
+                    <View
+                        android:id="@+id/locationEditView_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/white"
+                        android:layout_below="@+id/locationEditText_et"
+                        />
+
+                </RelativeLayout>
+
+                
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/keywordsEditVideoInfo_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/locationEditVideoInfo_rl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/keywordsIcon_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightBlueColor">
+                    <ImageView
+                        android:id="@+id/keywordsIcon_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/back_arrow"/>
+
+                    <TextView
+                        android:id="@+id/keywordsTextHeading_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/keywords"
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/keywordsIcon_iv"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/keywordsEditVideoInformation_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/keywordsIcon_rl"
+                    android:background="@color/blueColorCode"
+                    >
+                   <android.support.v7.widget.RecyclerView
+                       android:id="@+id/keywordsVideoInfo_rv"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/addAdditionalKeywords_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_below="@+id/keywordsVideoInfo_rv"
+                        android:src="@drawable/back_arrow"
+                        android:layout_margin="10dp"
+                        />
+
+
+                    <EditText
+                        android:id="@+id/addAdditionalKeywords_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/keywordsVideoInfo_rv"
+                        android:layout_toRightOf="@+id/addAdditionalKeywords_iv"
+                        android:text="Add Additional Keywords (Separate By Commas) :"
+                        android:textSize="12sp"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/transparent"
+                        />
+
+                    <View
+                        android:id="@+id/keywordsEditView_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/white"
+                        android:layout_below="@+id/addAdditionalKeywords_et"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/videoTitleEditVideoInfo_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/keywordsEditVideoInfo_rl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/videoTitleIcon_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightBlueColor">
+                    <ImageView
+                        android:id="@+id/videoTitleIcon_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/back_arrow"/>
+
+                    <TextView
+                        android:id="@+id/videoTitleEditHeading_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Video Title: "
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/videoTitleIcon_iv"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/videoTitleEditVideoInformation_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/videoTitleIcon_rl"
+                    android:background="@color/blueColorCode"
+                    >
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/VideoTitleInfo_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/addYourOwnTitle_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_below="@+id/VideoTitleInfo_rv"
+                        android:src="@drawable/back_arrow"
+                        android:layout_margin="10dp"
+                        />
+
+                    <EditText
+                        android:id="@+id/addYourOwnTitle_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/VideoTitleInfo_rv"
+                        android:layout_toRightOf="@+id/addYourOwnTitle_iv"
+                        android:text="Add Your Own Title"
+                        android:textSize="12sp"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/transparent"
+                        />
+
+                    <View
+                        android:id="@+id/videoTitleEditView_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/white"
+                        android:layout_below="@+id/addYourOwnTitle_et"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/videoDescriptionEditVideoInfo_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/videoTitleEditVideoInfo_rl"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/videoDescriptionIcon_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightBlueColor">
+                    <ImageView
+                        android:id="@+id/videoDescriptionIcon_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/back_arrow"/>
+
+                    <TextView
+                        android:id="@+id/videoDescriptionEditHeading_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Video Description: "
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/videoDescriptionIcon_iv"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/videoDescriptionEditVideoInformation_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/videoDescriptionIcon_rl"
+                    android:background="@color/blueColorCode"
+                    >
+                    <android.support.v7.widget.RecyclerView
+                    android:id="@+id/videoDescription_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/addYourOwnDesc_iv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_below="@+id/videoDescription_rv"
+                        android:src="@drawable/back_arrow"
+                        android:layout_margin="10dp"
+                        />
+
+                    <EditText
+                        android:id="@+id/addYourOwnDesc_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/videoDescription_rv"
+                        android:layout_toRightOf="@+id/addYourOwnDesc_iv"
+                        android:text="Add Your Own Description"
+                        android:textSize="12sp"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/transparent"
+                        />
+
+                    <View
+                        android:id="@+id/videoDescEditView_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/white"
+                        android:layout_below="@+id/addYourOwnDesc_et"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

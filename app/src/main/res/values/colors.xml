@@ -6,6 +6,7 @@
 
     <color name="blueColorCode">#397890</color>
     <color name="lightBlueColorCode">#5ba0ba</color>
+    <color name="lightBlueColor">#9cd4ea</color>
     <color name="lightgrey">#E5E4E2</color>
     <color name="textGreyColor">#757575</color>
 </resources>

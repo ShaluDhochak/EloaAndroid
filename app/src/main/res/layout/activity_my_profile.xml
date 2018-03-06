@@ -1,9 +1,507 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.user.eloaandroid.View.Activity.MyProfileActivity">
 
-</RelativeLayout>
+    <include android:id="@+id/profileHeader_layout"
+        layout="@layout/header_layout"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:id="@+id/profileMain_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/lightBlueColorCode"
+            >
+
+            <LinearLayout
+                android:id="@+id/imageName_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1">
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/video_details_box">
+
+                    <TextView
+                        android:id="@+id/nameHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Name: "
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/nameString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:layout_toRightOf="@+id/nameHeading_tv"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                    <View
+                        android:id="@+id/separatorName_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black"
+                        android:layout_below="@+id/nameHeading_tv"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/emailHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Email: "
+                        android:layout_below="@+id/separatorName_view"
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/emailString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/separatorName_view"
+                        android:layout_toRightOf="@+id/emailHeading_tv"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                    <View
+                        android:id="@+id/separatorEmail_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black"
+                        android:layout_below="@+id/emailHeading_tv"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/addressHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Address: "
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/separatorEmail_view" />
+
+                    <TextView
+                        android:id="@+id/addressString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/addressHeading_tv"
+                        android:layout_below="@+id/separatorEmail_view"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                    <View
+                        android:id="@+id/separatorAddress_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black"
+                        android:layout_below="@+id/addressHeading_tv"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/lawFirmNameHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Law Firm Name: "
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/separatorAddress_view" />
+
+                    <TextView
+                        android:id="@+id/lawFirmNameString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/lawFirmNameHeading_tv"
+                        android:layout_below="@+id/separatorAddress_view"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                    <View
+                        android:id="@+id/separatorLawFirmName_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black"
+                        android:layout_below="@+id/lawFirmNameHeading_tv"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/phoneHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Phone: "
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/separatorLawFirmName_view" />
+
+                    <TextView
+                        android:id="@+id/phoneString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/phoneHeading_tv"
+                        android:layout_below="@+id/separatorLawFirmName_view"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                    <View
+                        android:id="@+id/separatorPhone_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/black"
+                        android:layout_below="@+id/phoneHeading_tv"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/areaOfLawHeading_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Area of Law: "
+                        android:textSize="15sp"
+                        android:textColor="@color/blueColorCode"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/separatorPhone_view" />
+
+                    <TextView
+                        android:id="@+id/areaOfLawString_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/areaOfLawHeading_tv"
+                        android:layout_below="@+id/separatorPhone_view"
+                        android:text="John Larckin B."
+                        android:textColor="@android:color/black" />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/profileImage_iv"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/back_arrow"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+               />
+
+            <TextView
+                android:id="@+id/userName_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileImage_iv"
+                android:text="John Larckin"
+                android:textSize="17sp"
+                android:textColor="@android:color/white"
+                android:textAlignment="center"
+                />
+
+            <View
+                android:id="@+id/separatorBelowName_view"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/imageName_ll"/>
+
+            <TextView
+                android:id="@+id/enterNewName_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_corner_edittext"
+                android:layout_below="@+id/separatorBelowName_view"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:text="Enter New Name"
+                android:textColor="@color/blueColorCode"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/enterNewEmail_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_corner_edittext"
+                android:layout_below="@+id/enterNewName_tv"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Enter New Email"
+                android:textColor="@color/blueColorCode"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/enterLawFirmName_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_corner_edittext"
+                android:layout_below="@+id/enterNewEmail_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:text="Enter Law Firm Name"
+                android:textColor="@color/blueColorCode"
+                android:textStyle="bold"
+                />
+
+
+            <TextView
+                android:id="@+id/enterAddress_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_corner_edittext"
+                android:layout_below="@+id/enterLawFirmName_tv"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Enter Address"
+                android:textColor="@color/blueColorCode"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:id="@+id/phoneAreaOfLaw_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/enterAddress_tv"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:weightSum="2"
+                >
+
+                <TextView
+                    android:id="@+id/enterNewPhone_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_edittext"
+                    android:padding="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="Phone"
+                    android:textColor="@color/blueColorCode"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/selectAreaLaw_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_edittext"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:text="Area of Law"
+                    android:textColor="@color/blueColorCode"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/updateProfile_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/video_details_box"
+                android:layout_below="@+id/phoneAreaOfLaw_ll"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Update"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:id="@+id/separatorAndLeft_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/updateProfile_btn"
+                android:layout_toLeftOf="@+id/andBelowUpdate_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/andBelowUpdate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/updateProfile_btn"
+                android:text="AND"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                />
+
+            <View
+                android:id="@+id/separatorAndRight_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/updateProfile_btn"
+                android:layout_toRightOf="@+id/andBelowUpdate_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/oldNewPassword_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/andBelowUpdate_tv"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:weightSum="2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/oldPassword_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_edittext"
+                    android:padding="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:text="Old Password"
+                    android:textColor="@color/blueColorCode"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/newPassword_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_corner_edittext"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:text="New Password"
+                    android:textColor="@color/blueColorCode"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/changePassword_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/video_details_box"
+                android:layout_below="@+id/oldNewPassword_ll"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Change Password"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:id="@+id/separatorOrLeft_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/changePassword_btn"
+                android:layout_toLeftOf="@+id/orBelowChangePassword_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/orBelowChangePassword_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/changePassword_btn"
+                android:text="OR"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                />
+
+            <View
+                android:id="@+id/separatorOrRight_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_below="@+id/changePassword_btn"
+                android:layout_toRightOf="@+id/orBelowChangePassword_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <Button
+                android:id="@+id/logoutProfile_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/video_details_box"
+                android:layout_below="@+id/orBelowChangePassword_tv"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Logout"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

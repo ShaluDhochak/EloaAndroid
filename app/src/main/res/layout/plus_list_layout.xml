@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/videoList_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_textview"
+        android:layout_margin="10dp">
+        <ImageView
+            android:id="@+id/plusIcon_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:id="@+id/nameVideoEditText_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inquiry Firm"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/plusIcon_iv"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

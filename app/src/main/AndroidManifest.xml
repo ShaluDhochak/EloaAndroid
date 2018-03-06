@@ -23,7 +23,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".View.Activity.AllVideosActivity" />
         <activity android:name=".View.Activity.StartRecordingActivity" />
-        <activity android:name=".View.Activity.MyProfileActivity"></activity>
+        <activity android:name=".View.Activity.MyProfileActivity" />
+        <activity android:name=".View.Activity.VideoDetailActivity"></activity>
     </application>
 
 </manifest>
