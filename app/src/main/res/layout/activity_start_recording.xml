@@ -11,27 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/header_bg"
         android:weightSum="4"
         >
     <RelativeLayout
         android:id="@+id/startrecording_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/blueColorCode"
         android:layout_weight="1.5"
         >
 
         <TextView
             android:id="@+id/startRecordingImage_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
             android:text="Start Recording"
             android:textColor="@android:color/white"
             android:textSize="17sp"
             android:textStyle="bold"
             android:textAlignment="center"
             android:padding="10dp"
-            android:background="@drawable/round_corner_filled_rectangle"
+            android:background="@drawable/btn_start_recording"
             android:layout_centerInParent="true"
             />
 
@@ -44,39 +44,43 @@
 
             <TextView
                 android:id="@+id/previousStep_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:text="Previous Step"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@android:color/white"
-                android:background="@drawable/round_corner_filled_rectangle"
+                android:background="@drawable/btn_small_record"
                 android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
                 android:layout_alignParentBottom="true"
                 android:layout_toLeftOf="@+id/playIcon_iv"
                 />
 
             <ImageView
                 android:id="@+id/playIcon_iv"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/back_arrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/play_icon"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 />
 
             <TextView
                 android:id="@+id/skipThisStep_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
                 android:text="Skip This Step"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@android:color/white"
-                android:background="@drawable/round_corner_filled_rectangle"
+                android:background="@drawable/btn_small_record"
                 android:padding="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_alignParentBottom="true"
                 android:layout_toRightOf="@+id/playIcon_iv"
                 />
@@ -90,9 +94,9 @@
         <RelativeLayout
             android:id="@+id/instructionStartRecording_rl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2.5"
-            android:background="@color/lightBlueColorCode"
+            android:background="@drawable/main_bg"
             >
 
             <TextView

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:background="@color/lightBlueColorCode"
+            android:background="@drawable/main_bg"
             >
 
             <LinearLayout
@@ -50,7 +50,7 @@
                         android:id="@+id/nameHeading_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="70dp"
+                        android:layout_marginTop="90dp"
                         android:layout_marginLeft="10dp"
                         android:text="Name: "
                         android:textSize="15sp"
@@ -61,7 +61,7 @@
                         android:id="@+id/nameString_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="70dp"
+                        android:layout_marginTop="90dp"
                         android:layout_toRightOf="@+id/nameHeading_tv"
                         android:text="John Larckin B."
                         android:textColor="@android:color/black" />
@@ -212,6 +212,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="Area of Law: "
                         android:textSize="15sp"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/blueColorCode"
                         android:textStyle="bold"
                         android:layout_below="@+id/separatorPhone_view" />
@@ -224,17 +225,20 @@
                         android:layout_toRightOf="@+id/areaOfLawHeading_tv"
                         android:layout_below="@+id/separatorPhone_view"
                         android:text="John Larckin B."
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
                         android:textColor="@android:color/black" />
 
                 </RelativeLayout>
             </LinearLayout>
             <ImageView
                 android:id="@+id/profileImage_iv"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/back_arrow"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/user_avatar"
                 android:adjustViewBounds="true"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_gravity="center"
                 android:layout_centerHorizontal="true"
                />
@@ -248,6 +252,7 @@
                 android:textSize="17sp"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
+                android:layout_marginBottom="10dp"
                 />
 
             <View
@@ -261,8 +266,8 @@
             <TextView
                 android:id="@+id/enterNewName_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_corner_edittext"
+                android:layout_height="40dp"
+                android:background="@drawable/textbox_myprofile"
                 android:layout_below="@+id/separatorBelowName_view"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -275,8 +280,8 @@
             <TextView
                 android:id="@+id/enterNewEmail_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_corner_edittext"
+                android:layout_height="40dp"
+                android:background="@drawable/textbox_myprofile"
                 android:layout_below="@+id/enterNewName_tv"
                 android:layout_margin="10dp"
                 android:padding="10dp"
@@ -288,8 +293,8 @@
             <TextView
                 android:id="@+id/enterLawFirmName_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_corner_edittext"
+                android:layout_height="40dp"
+                android:background="@drawable/textbox_myprofile"
                 android:layout_below="@+id/enterNewEmail_tv"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -303,8 +308,8 @@
             <TextView
                 android:id="@+id/enterAddress_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_corner_edittext"
+                android:layout_height="40dp"
+                android:background="@drawable/textbox_myprofile"
                 android:layout_below="@+id/enterLawFirmName_tv"
                 android:layout_margin="10dp"
                 android:padding="10dp"
@@ -327,8 +332,8 @@
                 <TextView
                     android:id="@+id/enterNewPhone_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_corner_edittext"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textbox_small_myprofile"
                     android:padding="10dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -339,8 +344,8 @@
                 <TextView
                     android:id="@+id/selectAreaLaw_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_corner_edittext"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textbox_small_myprofile"
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
@@ -353,8 +358,8 @@
             <Button
                 android:id="@+id/updateProfile_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/video_details_box"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_myprofile"
                 android:layout_below="@+id/phoneAreaOfLaw_ll"
                 android:layout_margin="10dp"
                 android:padding="10dp"
@@ -415,24 +420,26 @@
                 <TextView
                     android:id="@+id/oldPassword_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_corner_edittext"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textbox_small_myprofile"
                     android:padding="10dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:text="Old Password"
+                    android:textAlignment="center"
                     android:textColor="@color/blueColorCode"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/newPassword_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_corner_edittext"
+                    android:layout_height="40dp"
+                    android:background="@drawable/textbox_small_myprofile"
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
                     android:text="New Password"
+                    android:textAlignment="center"
                     android:textColor="@color/blueColorCode"
                     android:textStyle="bold" />
 
@@ -441,8 +448,8 @@
             <Button
                 android:id="@+id/changePassword_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/video_details_box"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_myprofile"
                 android:layout_below="@+id/oldNewPassword_ll"
                 android:layout_margin="10dp"
                 android:padding="10dp"
@@ -490,8 +497,8 @@
             <Button
                 android:id="@+id/logoutProfile_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/video_details_box"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_myprofile"
                 android:layout_below="@+id/orBelowChangePassword_tv"
                 android:layout_margin="10dp"
                 android:padding="10dp"

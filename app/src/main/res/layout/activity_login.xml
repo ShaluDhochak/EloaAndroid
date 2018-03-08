@@ -20,8 +20,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:orientation="vertical"
-                android:background="@color/blueColorCode"
+                android:background="@drawable/header_bg"
                 >
+
+                <ImageView
+                    android:id="@+id/logoLogin_iv"
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/logo"
+                    />
 
                 <LinearLayout
                     android:id="@+id/signInUpText_ll"
@@ -37,10 +45,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signIn"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         android:layout_weight="1"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
+                        android:textStyle="bold"
                         />
 
                     <TextView
@@ -48,9 +57,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signUp"
-                        android:textSize="20sp"
+                        android:textSize="14sp"
                         android:layout_weight="1"
                         android:textAlignment="center"
+                        android:textStyle="bold"
                         android:textColor="@android:color/white"
                         />
 
@@ -67,9 +77,9 @@
                 <EditText
                     android:id="@+id/emailAddress_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/round_corner_rectangle"
+                    android:background="@drawable/textbox"
                     android:padding="10dp"
                     android:text="@string/emailAddress"
                     android:textColor="@color/blueColorCode"
@@ -79,11 +89,11 @@
                 <EditText
                     android:id="@+id/password_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_below="@+id/emailAddress_et"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/round_corner_rectangle"
+                    android:background="@drawable/textbox"
                     android:padding="10dp"
                     android:text="@string/password"
                     android:textColor="@color/blueColorCode"
@@ -93,14 +103,14 @@
                 <TextView
                     android:id="@+id/signIn_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_below="@+id/password_et"
                     android:layout_margin="10dp"
-                    android:background="@drawable/round_corner_rectangle"
+                    android:background="@drawable/btn_large"
                     android:padding="10dp"
                     android:text="@string/signIn"
                     android:textAlignment="center"
-                    android:textColor="@color/blueColorCode"
+                    android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -109,10 +119,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_below="@+id/signIn_btn"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:layout_toLeftOf="@+id/or_tv"
                     android:background="@color/blueColorCode" />
 
@@ -123,12 +133,11 @@
                     android:layout_below="@+id/signIn_btn"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
                     android:padding="5dp"
                     android:text="@string/or"
                     android:textAlignment="center"
-                    android:textColor="@color/blueColorCode"
-                    android:textSize="17sp"
+                    android:textColor="@android:color/black"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <View
@@ -136,10 +145,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_below="@+id/signIn_btn"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="15dp"
                     android:layout_toRightOf="@+id/or_tv"
                     android:background="@color/blueColorCode" />
 
@@ -148,7 +157,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/orRight_view"
-                    android:layout_margin="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/round_corner_rectangle">
 
                     <RelativeLayout
@@ -164,7 +174,8 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp" />
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/twitter"/>
 
                         <TextView
                             android:id="@+id/loginTwitter_tv"
@@ -203,7 +214,9 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp" />
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/facebook"
+                            />
 
                         <TextView
                             android:id="@+id/loginFb_tv"
@@ -236,10 +249,10 @@
                     <TextView
                         android:id="@+id/tryForFree_tv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/round_corner_filled_rectangle"
+                        android:background="@drawable/btn_small"
                         android:padding="10dp"
                         android:text="@string/tryForFree"
                         android:textAlignment="center"
@@ -251,10 +264,10 @@
                     <TextView
                         android:id="@+id/signUp_tv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/round_corner_filled_rectangle"
+                        android:background="@drawable/btn_small"
                         android:padding="10dp"
                         android:text="@string/signUp"
                         android:textColor="@android:color/white"

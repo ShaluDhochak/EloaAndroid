@@ -28,7 +28,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
-                android:background="@color/lightBlueColorCode"/>
+                android:background="@drawable/user_avatar"/>
             <TextView
                 android:id="@+id/VideoHeading_txtView"
                 android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/videoHeadingDetails_rl"
-            android:src="@drawable/back_arrow"
+
             />
         </RelativeLayout>
 
@@ -125,7 +125,7 @@
                 android:layout_height="15dp"
                 android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
                 android:layout_centerVertical="true"
-                android:src="@drawable/back_arrow"/>
+                android:src="@drawable/description_arrow_up"/>
         </RelativeLayout>
 
         <RelativeLayout
