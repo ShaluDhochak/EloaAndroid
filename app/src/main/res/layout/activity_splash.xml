@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splashscreen"
     tools:context="com.example.user.eloaandroid.View.Activity.SplashActivity">
 
     <ImageView
         android:id="@+id/logo_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:src="@drawable/splashscreen"
         />
 
 </RelativeLayout>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/main_bg"
     tools:context="com.example.user.eloaandroid.View.Activity.VideoDetailActivity">
 
     <include android:id="@+id/profileHeader_layout"
@@ -13,14 +14,13 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:id="@+id/videoDetail_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/main_bg">
+           >
 
             <android.support.v7.widget.CardView
                 android:id="@+id/videoDetail_cardView"
@@ -32,61 +32,67 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <RelativeLayout
                         android:id="@+id/videoDetailHeadingDetails_rl"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@color/lightBlueColor"
-                        >
+                        android:background="@color/lightBlueColor">
 
                         <ImageView
                             android:id="@+id/profileImgVideoDetail_iv"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_margin="10dp"
-                            android:background="@drawable/user_avatar"/>
+                            android:background="@drawable/user_avatar" />
+
                         <TextView
                             android:id="@+id/VideoDetailHeading_txtView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
                             android:layout_marginTop="15sp"
-                            android:textColor="@android:color/white"
+                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
                             android:text="@string/app_name"
+                            android:textColor="@android:color/white"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            />
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/VideoSubDetailHeading_txtView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
                             android:layout_below="@+id/VideoDetailHeading_txtView"
                             android:layout_marginTop="5sp"
-                            android:textColor="@android:color/white"
+                            android:layout_toRightOf="@+id/profileImgVideoDetail_iv"
                             android:text="@string/app_name"
-                            android:textSize="10sp"
-                            />
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
 
                         <ImageView
                             android:id="@+id/shareOnYoutubeVideoDetail_iv"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/share_icon"
-                            android:layout_margin="10dp"
-                            android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
-                            />
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/share_icon" />
 
                     </RelativeLayout>
+
                     <ImageView
                         android:id="@+id/VideoDetail_imgView"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_below="@+id/videoDetailHeadingDetails_rl"
-                        android:src="@drawable/header_bg"
+                        android:src="@drawable/header_bg" />
+
+                    <ImageView
+                        android:id="@+id/playVideoDetail_iv"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/play_icon"
+                        android:layout_centerInParent="true"
                         />
                 </RelativeLayout>
 
@@ -96,35 +102,32 @@
                 android:id="@+id/separtorBelowVideoDetail_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/white"
                 android:layout_below="@+id/videoDetail_cardView"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                />
+                android:background="@android:color/white" />
 
             <TextView
                 android:id="@+id/videoInfoHeading_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/videoInfoPreview"
                 android:layout_below="@+id/separtorBelowVideoDetail_view"
-                android:textAlignment="center"
                 android:layout_margin="10dp"
-                android:textSize="14sp"
+                android:text="@string/videoInfoPreview"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <View
                 android:id="@+id/separtorBelowVideoInfo_view"
                 android:layout_width="190dp"
                 android:layout_height="1dp"
-                android:background="@android:color/white"
                 android:layout_below="@+id/videoInfoHeading_tv"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_centerHorizontal="true"
-                />
+                android:background="@android:color/white" />
 
             <RelativeLayout
                 android:id="@+id/keywordVideoInfoPreview_rl"
@@ -139,30 +142,27 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/search"
-                    />
+                    android:src="@drawable/search" />
 
                 <TextView
                     android:id="@+id/keywordsHeading_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/keywords"
-                    android:textColor="@android:color/black"
-                    android:layout_toRightOf="@+id/keywordsVideoDetail_iv"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_toRightOf="@+id/keywordsVideoDetail_iv"
+                    android:text="@string/keywords"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/keywordsString_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Keyword1, Keyword2, Keyword3"
-                    android:textColor="@color/blueColorCode"
-                    android:layout_toRightOf="@+id/keywordsHeading_tv"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    />
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/keywordsHeading_tv"
+                    android:text="Keyword1, Keyword2, Keyword3"
+                    android:textColor="@color/blueColorCode" />
 
             </RelativeLayout>
 
@@ -180,30 +180,27 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/pen"
-                    />
+                    android:src="@drawable/pen" />
 
                 <TextView
                     android:id="@+id/videoTitleHeading_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/videoTitle"
-                    android:textColor="@android:color/black"
-                    android:layout_toRightOf="@+id/videoTitleDetail_iv"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_toRightOf="@+id/videoTitleDetail_iv"
+                    android:text="@string/videoTitle"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/videoTitleString_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lorem Ipsum"
-                    android:textColor="@color/blueColorCode"
-                    android:layout_toRightOf="@+id/videoTitleHeading_tv"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    />
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/videoTitleHeading_tv"
+                    android:text="Lorem Ipsum"
+                    android:textColor="@color/blueColorCode" />
 
             </RelativeLayout>
 
@@ -220,32 +217,29 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/clip_board_video_detail"
-                    />
+                    android:src="@drawable/clip_board_video_detail" />
 
                 <TextView
                     android:id="@+id/descriptionVideoTitleHeading_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/description"
-                    android:textColor="@android:color/black"
-                    android:layout_toRightOf="@+id/descriptionVideoTitleDetail_iv"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_toRightOf="@+id/descriptionVideoTitleDetail_iv"
+                    android:text="@string/description"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/descriptionVideoTitleString_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/instruction"
-                    android:textColor="@color/blueColorCode"
-                    android:layout_toRightOf="@+id/descriptionVideoTitleHeading_tv"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/descriptionVideoTitleHeading_tv"
                     android:lineSpacingExtra="4sp"
-                    />
+                    android:text="@string/instruction"
+                    android:textColor="@color/blueColorCode" />
 
             </RelativeLayout>
 
@@ -263,101 +257,94 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/location"
-                    />
+                    android:src="@drawable/location" />
 
                 <TextView
                     android:id="@+id/locationVideoTitleHeading_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/location"
-                    android:textColor="@android:color/black"
-                    android:layout_toRightOf="@+id/locationVideoTitleDetail_iv"
                     android:layout_marginTop="10dp"
-                    />
+                    android:layout_toRightOf="@+id/locationVideoTitleDetail_iv"
+                    android:text="@string/location"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/locationVideoTitleString_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="London, 2950125"
-                    android:textColor="@color/blueColorCode"
-                    android:layout_toRightOf="@+id/locationVideoTitleHeading_tv"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/locationVideoTitleHeading_tv"
                     android:lineSpacingExtra="4sp"
-                    />
-
+                    android:text="London, 2950125"
+                    android:textColor="@color/blueColorCode" />
 
 
             </RelativeLayout>
-            
+
             <View
                 android:id="@+id/separtorBelowVideoDetailInfo_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/white"
                 android:layout_below="@+id/locationVideoInfoPreview_rl"
                 android:layout_margin="10dp"
-                />
+                android:background="@android:color/white" />
 
             <TextView
                 android:id="@+id/editVideoInfoHeading_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/editVideoInfo"
                 android:layout_below="@+id/separtorBelowVideoDetailInfo_view"
-                android:textAlignment="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:textSize="14sp"
+                android:text="@string/editVideoInfo"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <View
                 android:id="@+id/separtorBelowEditVideoInfo_view"
                 android:layout_width="190dp"
                 android:layout_height="1dp"
-                android:background="@android:color/white"
                 android:layout_below="@+id/editVideoInfoHeading_tv"
-                android:layout_margin="10dp"
                 android:layout_centerHorizontal="true"
-                />
-            
+                android:layout_margin="10dp"
+                android:background="@android:color/white" />
+
             <RelativeLayout
                 android:id="@+id/locationEditVideoInfo_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/separtorBelowEditVideoInfo_view"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginRight="10dp">
 
                 <RelativeLayout
                     android:id="@+id/locationIcon_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/lightBlueColor">
+
                     <ImageView
                         android:id="@+id/locationIcon_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/location"/>
+                        android:src="@drawable/location" />
 
                     <TextView
                         android:id="@+id/locationTextHeading_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Location (City,State,Zip code) :"
-                        android:textColor="@color/blueColorCode"
-                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_toRightOf="@+id/locationIcon_iv"
-                        />
+                        android:text="Location (City,State,Zip code) :"
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
 
@@ -366,39 +353,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/locationIcon_rl"
-                    android:background="@color/blueColorCode"
-                    >
+                    android:background="@color/blueColorCode">
+
                     <ImageView
                         android:id="@+id/locationSideIcon_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/arrow"/>
+                        android:src="@drawable/arrow" />
 
                     <EditText
                         android:id="@+id/locationEditText_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/locationSideIcon_iv"
+                        android:background="@android:color/transparent"
                         android:text="Ex, Detroit etc."
                         android:textColor="@android:color/white"
-                        android:textSize="14sp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@android:color/transparent"
-                        android:layout_toRightOf="@+id/locationSideIcon_iv"
-                        />
+                        android:textSize="14sp" />
 
                     <View
                         android:id="@+id/locationEditView_view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@android:color/white"
                         android:layout_below="@+id/locationEditText_et"
-                        />
+                        android:background="@android:color/white" />
 
                 </RelativeLayout>
 
-                
             </RelativeLayout>
 
             <RelativeLayout
@@ -406,32 +390,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/locationEditVideoInfo_rl"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginRight="10dp">
 
                 <RelativeLayout
                     android:id="@+id/keywordsIcon_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/lightBlueColor">
+
                     <ImageView
                         android:id="@+id/keywordsIcon_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/search"/>
+                        android:src="@drawable/search" />
 
                     <TextView
                         android:id="@+id/keywordsTextHeading_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/keywords"
-                        android:textColor="@color/blueColorCode"
-                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_toRightOf="@+id/keywordsIcon_iv"
-                        />
+                        android:text="@string/keywords"
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
 
@@ -440,21 +424,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/keywordsIcon_rl"
-                    android:background="@color/blueColorCode"
-                    >
-                   <android.support.v7.widget.RecyclerView
-                       android:id="@+id/keywordsVideoInfo_rv"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"/>
+                    android:background="@color/blueColorCode">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/keywordsVideoInfo_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/addAdditionalKeywords_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_below="@+id/keywordsVideoInfo_rv"
-                        android:src="@drawable/arrow"
                         android:layout_margin="10dp"
-                        />
+                        android:src="@drawable/arrow" />
 
 
                     <EditText
@@ -462,21 +445,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/keywordsVideoInfo_rv"
-                        android:layout_toRightOf="@+id/addAdditionalKeywords_iv"
-                        android:text="Add Additional Keywords (Separate By Commas) :"
-                        android:textSize="12sp"
                         android:layout_margin="10dp"
-                        android:textColor="@android:color/white"
+                        android:layout_toRightOf="@+id/addAdditionalKeywords_iv"
                         android:background="@android:color/transparent"
-                        />
+                        android:text="Add Additional Keywords (Separate By Commas) :"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
 
                     <View
                         android:id="@+id/keywordsEditView_view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@android:color/white"
                         android:layout_below="@+id/addAdditionalKeywords_et"
-                        />
+                        android:background="@android:color/white" />
 
                 </RelativeLayout>
 
@@ -488,32 +469,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/keywordsEditVideoInfo_rl"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginRight="10dp">
 
                 <RelativeLayout
                     android:id="@+id/videoTitleIcon_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/lightBlueColor">
+
                     <ImageView
                         android:id="@+id/videoTitleIcon_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/pen"/>
+                        android:src="@drawable/pen" />
 
                     <TextView
                         android:id="@+id/videoTitleEditHeading_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Video Title: "
-                        android:textColor="@color/blueColorCode"
-                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_toRightOf="@+id/videoTitleIcon_iv"
-                        />
+                        android:text="Video Title: "
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
 
@@ -522,42 +503,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/videoTitleIcon_rl"
-                    android:background="@color/blueColorCode"
-                    >
+                    android:background="@color/blueColorCode">
+
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/VideoTitleInfo_rv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/addYourOwnTitle_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_below="@+id/VideoTitleInfo_rv"
-                        android:src="@drawable/arrow"
                         android:layout_margin="10dp"
-                        />
+                        android:src="@drawable/arrow" />
 
                     <EditText
                         android:id="@+id/addYourOwnTitle_et"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/VideoTitleInfo_rv"
-                        android:layout_toRightOf="@+id/addYourOwnTitle_iv"
-                        android:text="Add Your Own Title"
-                        android:textSize="12sp"
                         android:layout_margin="10dp"
-                        android:textColor="@android:color/white"
+                        android:layout_toRightOf="@+id/addYourOwnTitle_iv"
                         android:background="@android:color/transparent"
-                        />
+                        android:text="Add Your Own Title"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
 
                     <View
                         android:id="@+id/videoTitleEditView_view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@android:color/white"
                         android:layout_below="@+id/addYourOwnTitle_et"
-                        />
+                        android:background="@android:color/white" />
 
                 </RelativeLayout>
 
@@ -568,32 +546,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/videoTitleEditVideoInfo_rl"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_marginRight="10dp">
 
                 <RelativeLayout
                     android:id="@+id/videoDescriptionIcon_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/lightBlueColor">
+
                     <ImageView
                         android:id="@+id/videoDescriptionIcon_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/clip_board_video_detail"/>
+                        android:src="@drawable/clip_board_video_detail" />
 
                     <TextView
                         android:id="@+id/videoDescriptionEditHeading_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Video Description: "
-                        android:textColor="@color/blueColorCode"
-                        android:textSize="14sp"
                         android:layout_marginTop="10dp"
                         android:layout_toRightOf="@+id/videoDescriptionIcon_iv"
-                        />
+                        android:text="Video Description: "
+                        android:textColor="@color/blueColorCode"
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
 
@@ -602,42 +580,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/videoDescriptionIcon_rl"
-                    android:background="@color/blueColorCode"
-                    >
+                    android:background="@color/blueColorCode">
+
                     <android.support.v7.widget.RecyclerView
-                    android:id="@+id/videoDescription_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                        android:id="@+id/videoDescription_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/addYourOwnDesc_iv"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_below="@+id/videoDescription_rv"
-                        android:src="@drawable/arrow"
                         android:layout_margin="10dp"
-                        />
+                        android:src="@drawable/arrow" />
 
                     <EditText
                         android:id="@+id/addYourOwnDesc_et"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/videoDescription_rv"
-                        android:layout_toRightOf="@+id/addYourOwnDesc_iv"
-                        android:text="Add Your Own Description"
-                        android:textSize="12sp"
                         android:layout_margin="10dp"
-                        android:textColor="@android:color/white"
+                        android:layout_toRightOf="@+id/addYourOwnDesc_iv"
                         android:background="@android:color/transparent"
-                        />
+                        android:text="Add Your Own Description"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
 
                     <View
                         android:id="@+id/videoDescEditView_view"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@android:color/white"
                         android:layout_below="@+id/addYourOwnDesc_et"
-                        />
+                        android:background="@android:color/white" />
 
                 </RelativeLayout>
 

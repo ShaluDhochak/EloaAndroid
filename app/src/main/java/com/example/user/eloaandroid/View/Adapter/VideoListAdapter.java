@@ -69,6 +69,10 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
         holder.descriptionDetail_tv.setText(movie.getDescription());
         holder.keywordsDetail_tv.setText(movie.getKeywords());
 
+        holder.videoDescription.setVisibility(View.VISIBLE);
+        holder.hideDetail_iv.setVisibility(View.VISIBLE);
+        holder.showDetail_iv.setVisibility(View.GONE);
+
         holder.showDetail_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

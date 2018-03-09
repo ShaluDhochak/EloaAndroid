@@ -8,17 +8,17 @@ import android.widget.TextView;
 
 import com.example.user.eloaandroid.R;
 
-public class MyProfileActivity extends AppCompatActivity implements View.OnClickListener{
-
+public class ReviewActivity extends AppCompatActivity implements View.OnClickListener{
 
     //Header Layout
     ImageView headerBack_iv,headerRight_iv;
     TextView headingText_tv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_profile);
+        setContentView(R.layout.activity_review);
 
         //Header Layout
         headerBack_iv = (ImageView) findViewById(R.id.headerBack_iv);
@@ -27,15 +27,17 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
         headerRight_iv.setVisibility(View.GONE);
         headerBack_iv.setOnClickListener(this);
-        headingText_tv.setText("Profile");
+        headingText_tv.setText("Review Video");
     }
+
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()){
             case R.id.headerBack_iv:
                 onBackPressed();
                 break;
+
         }
     }
 }

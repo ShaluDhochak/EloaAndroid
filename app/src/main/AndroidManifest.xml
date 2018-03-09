@@ -16,15 +16,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activity.LoginActivity" />
+        <activity android:name=".View.Activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
         <activity
             android:name=".View.Activity.HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".View.Activity.AllVideosActivity" />
-        <activity android:name=".View.Activity.StartRecordingActivity" />
-        <activity android:name=".View.Activity.MyProfileActivity" />
-        <activity android:name=".View.Activity.VideoDetailActivity"></activity>
+
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+
+        <activity android:name=".View.Activity.AllVideosActivity"
+        android:screenOrientation="portrait"
+        android:windowSoftInputMode="stateHidden"></activity>
+
+
+        <activity android:name=".View.Activity.StartRecordingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            >
+        </activity>
+        <activity android:name=".View.Activity.MyProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity android:name=".View.Activity.VideoDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity android:name=".View.Activity.ReviewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
     </application>
 
 </manifest>

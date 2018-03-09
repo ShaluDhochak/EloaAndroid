@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context="com.example.user.eloaandroid.View.Activity.ReviewActivity">
+
+    <include android:id="@+id/reviewVideo_layout"
+        layout="@layout/header_layout"/>
+
+    <ScrollView
+        android:id="@+id/scrollViewReviewVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reviewVideo_layout"
+        >
+
+        <RelativeLayout
+            android:id="@+id/reviewVideo_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <android.support.v7.widget.CardView
+                android:id="@+id/videoReview_cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="4sp"
+                app:cardElevation="4sp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/header_bg">
+
+                    <RelativeLayout
+                        android:id="@+id/videoReviewHeadingDetails_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@color/lightBlueColor">
+
+                        <ImageView
+                            android:id="@+id/profileImgVideoReview_iv"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/user_avatar" />
+
+                        <TextView
+                            android:id="@+id/videoReviewHeading_txtView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15sp"
+                            android:layout_toRightOf="@+id/profileImgVideoReview_iv"
+                            android:text="@string/app_name"
+                            android:textColor="@android:color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/VideoSubReviewHeading_txtView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/videoReviewHeading_txtView"
+                            android:layout_marginTop="5sp"
+                            android:layout_toRightOf="@+id/profileImgVideoReview_iv"
+                            android:text="14:20PM, Tuesday"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+
+                        <ImageView
+                            android:id="@+id/shareOnYoutubeVideoReview_iv"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/share_icon" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/VideoReview_imgView"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_below="@+id/videoReviewHeadingDetails_rl"
+                         />
+
+                    <ImageView
+                        android:id="@+id/playVideoReview_iv"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/play_icon"/>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:id="@+id/separtorBelowVideoReview_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/videoReview_cardView"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/white" />
+
+            <Button
+                android:id="@+id/saveVideoReview_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_dark_review"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/separtorBelowVideoReview_view"
+                android:text="Save Video"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                />
+
+            <Button
+                android:id="@+id/previewVideoReview_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_light_review"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/saveVideoReview_btn"
+                android:text="Review Video"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                />
+
+            <Button
+                android:id="@+id/deleteVideoReview_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_dark_review"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/previewVideoReview_btn"
+                android:text="Delete Video"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                />
+
+            <Button
+                android:id="@+id/videoUrlReview_btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_light_review"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/deleteVideoReview_btn"
+                android:text="Video Url"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

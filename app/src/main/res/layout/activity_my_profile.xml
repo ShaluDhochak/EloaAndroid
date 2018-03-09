@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/main_bg"
     tools:context="com.example.user.eloaandroid.View.Activity.MyProfileActivity">
 
     <include android:id="@+id/profileHeader_layout"
@@ -19,9 +20,8 @@
         <RelativeLayout
             android:id="@+id/profileMain_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
-            android:background="@drawable/main_bg"
             >
 
             <LinearLayout
@@ -263,8 +263,8 @@
                 android:background="@android:color/white"
                 android:layout_below="@+id/imageName_ll"/>
 
-            <TextView
-                android:id="@+id/enterNewName_tv"
+            <EditText
+                android:id="@+id/enterNewName_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/textbox_myprofile"
@@ -272,65 +272,68 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:padding="10dp"
+                android:textSize="13sp"
                 android:text="Enter New Name"
                 android:textColor="@color/blueColorCode"
                 android:textStyle="bold"
                 />
 
-            <TextView
-                android:id="@+id/enterNewEmail_tv"
+            <EditText
+                android:id="@+id/enterNewEmail_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/textbox_myprofile"
-                android:layout_below="@+id/enterNewName_tv"
+                android:layout_below="@+id/enterNewName_et"
                 android:layout_margin="10dp"
                 android:padding="10dp"
+                android:textSize="13sp"
                 android:text="Enter New Email"
                 android:textColor="@color/blueColorCode"
                 android:textStyle="bold"
                 />
 
-            <TextView
-                android:id="@+id/enterLawFirmName_tv"
+            <EditText
+                android:id="@+id/enterLawFirmName_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/textbox_myprofile"
-                android:layout_below="@+id/enterNewEmail_tv"
+                android:layout_below="@+id/enterNewEmail_et"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:padding="10dp"
+                android:textSize="13sp"
                 android:text="Enter Law Firm Name"
                 android:textColor="@color/blueColorCode"
                 android:textStyle="bold"
                 />
 
 
-            <TextView
-                android:id="@+id/enterAddress_tv"
+            <EditText
+                android:id="@+id/enterAddress_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                 android:layout_below="@+id/enterLawFirmName_et"
                 android:background="@drawable/textbox_myprofile"
-                android:layout_below="@+id/enterLawFirmName_tv"
-                android:layout_margin="10dp"
                 android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textSize="13sp"
                 android:text="Enter Address"
                 android:textColor="@color/blueColorCode"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/phoneAreaOfLaw_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/enterAddress_tv"
+                android:layout_below="@+id/enterAddress_et"
                 android:orientation="horizontal"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:weightSum="2"
                 >
 
-                <TextView
-                    android:id="@+id/enterNewPhone_tv"
+                <EditText
+                    android:id="@+id/enterNewPhone_et"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/textbox_small_myprofile"
@@ -338,17 +341,19 @@
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:text="Phone"
+                    android:textSize="13sp"
                     android:textColor="@color/blueColorCode"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/selectAreaLaw_tv"
+                <EditText
+                    android:id="@+id/selectAreaLaw_et"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/textbox_small_myprofile"
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
+                    android:textSize="13sp"
                     android:text="Area of Law"
                     android:textColor="@color/blueColorCode"
                     android:textStyle="bold" />
