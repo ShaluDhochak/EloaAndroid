@@ -81,7 +81,8 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/textbox"
                     android:padding="10dp"
-                    android:text="@string/emailAddress"
+                    android:hint="@string/emailAddress"
+                    android:textColorHint="@color/blueColorCode"
                     android:textColor="@color/blueColorCode"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -95,7 +96,8 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/textbox"
                     android:padding="10dp"
-                    android:text="@string/password"
+                    android:hint="@string/password"
+                    android:textColorHint="@color/blueColorCode"
                     android:textColor="@color/blueColorCode"
                     android:textSize="14sp"
                     android:textStyle="bold" />
