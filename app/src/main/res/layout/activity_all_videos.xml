@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.eloaandroid.View.Activity.AllVideosActivity">
 
-
     <include android:id="@+id/headerVideoList_layout"
         layout="@layout/header_layout" />
 
