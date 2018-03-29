@@ -43,7 +43,7 @@ import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView signIn_btn, signUp_btn, signInHeading_tv, signUpHeading_tv;
+    TextView  signUp_btn, signInHeading_tv, signUpHeading_tv;
     RelativeLayout signInButton_ll;
     LinearLayout signUpButton_ll;
     EditText name_et, emailid_et_SignUp, address_et, phone_et, lawfirm_et, passwordSignUp_et, confirmPasswordSignUp_et;
@@ -59,6 +59,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         emailAddress_et = (EditText) findViewById(R.id.emailAddress_et);
         password_et =(EditText) findViewById(R.id.password_et);
+
+        //Login via Fb
+        loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
+        loginFb_rl.setOnClickListener(this);
 
         signIn_btn = (TextView) findViewById(R.id.signIn_btn);
         signIn_btn.setOnClickListener(this);
@@ -98,10 +102,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-        //Login via Fb
-        loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
-        loginFb_rl.setOnClickListener(this);
-    }
 
     @Override
     public void onClick(View v) {
@@ -282,21 +282,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             socialAPIJsonObject.put("value","");
             socialAPIJsonObject.put("description","");
             jsonArray.put(socialAPIJsonObject);
-
-            JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.POST, "http://hunaniinfotech.com/public/mehul/index.php/Api/register", jsonArray, new Response.Listener<JSONArray>() {
-
-                public void onResponse(JSONArray response) {
-
-                    Log.i("Response : ", response.toString());
-
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.i("Error : ", "");
-                }
-            });
-            Volley.newRequestQueue(this).add(jsonObjectRequest);
+//
+//            JsonArrayRequest jsonObjectRequest = new JsonArrayRequest(Request.Method.POST, "http://hunaniinfotech.com/public/mehul/index.php/Api/register", jsonArray, new Response.Listener<JSONArray>() {
+//
+//                public void onResponse(JSONArray response) {
+//
+//                    Log.i("Response : ", response.toString());
+//
+//                }
+//            }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    Log.i("Error : ", "");
+//                }
+//            });
+           // Volley.newRequestQueue(this).add(jsonObjectRequest);
         }catch (Exception e)
         {
 
