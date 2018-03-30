@@ -24,7 +24,6 @@ public class StartRecordingActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_recording);
 
-
         startRecordingImage_tv = (TextView) findViewById(R.id.startRecordingImage_tv);
         startRecordingImage_tv.setOnClickListener(this);
 

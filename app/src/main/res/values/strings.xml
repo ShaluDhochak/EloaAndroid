@@ -18,6 +18,15 @@
 
     <string name="instruction">Lorem Ipsu is simply dummy text of the priniting and typrsetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially inchanged.</string>
 
+    <!--SignUp Detait-->
+    <string name="name">Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="law_firm_name">Law Firm Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signup_withtwitter">SignUp with Twitter</string>
+    <string name="signUp_withfacebook">SignUp with Facebook</string>
 
     <!--Video Detail-->
     <string name="videoInfoPreview">VIDEO INFORMATION PREVIEW</string>

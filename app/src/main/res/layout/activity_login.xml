@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     tools:context="com.example.user.eloaandroid.View.Activity.LoginActivity">
 
+
         <LinearLayout
             android:id="@+id/loginPartition_ll"
             android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="5dp">
                     
                     <TextView
                         android:id="@+id/signInHeading_tv"
@@ -73,6 +74,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/signInUp_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                <RelativeLayout
+                    android:id="@+id/signInHeader_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
 
                 <EditText
                     android:id="@+id/emailAddress_et"
@@ -277,6 +292,261 @@
                         android:textSize="15sp" />
 
                 </LinearLayout>
+                </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/signUpHeader_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       >
+
+                        <EditText
+                            android:id="@+id/nameAddressSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/name"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/emailAddressSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/emailAddress"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/nameAddressSignUp_et"/>
+
+                        <EditText
+                            android:id="@+id/addressSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/address"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/emailAddressSignUp_et"/>
+
+                        <EditText
+                            android:id="@+id/phoneSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/phone"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:inputType="phone"
+                            android:layout_below="@+id/addressSignUp_et"/>
+
+                        <EditText
+                            android:id="@+id/lawFirmNameSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/law_firm_name"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/phoneSignUp_et"/>
+
+                        <EditText
+                            android:id="@+id/passwordSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/password"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:inputType="textPassword"
+                            android:layout_below="@+id/lawFirmNameSignUp_et"/>
+
+                        <EditText
+                            android:id="@+id/confirmPasswordasswordSignUp_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/textbox"
+                            android:padding="10dp"
+                            android:hint="@string/confirm_password"
+                            android:textColorHint="@color/blueColorCode"
+                            android:textColor="@color/blueColorCode"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:inputType="textPassword"
+                            android:layout_below="@+id/passwordSignUp_et"/>
+
+                        <TextView
+                            android:id="@+id/sighUp_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@+id/confirmPasswordasswordSignUp_et"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/btn_large"
+                            android:padding="10dp"
+                            android:text="@string/signUp"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/orLeftSignUp_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/sighUp_btn"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_toLeftOf="@+id/orSignUp_tv"
+                            android:background="@color/blueColorCode" />
+
+                        <TextView
+                            android:id="@+id/orSignUp_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/sighUp_btn"
+                            android:layout_centerHorizontal="true"
+                            android:padding="5dp"
+                            android:text="@string/or"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/orRightSignUp_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/sighUp_btn"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_toRightOf="@+id/orSignUp_tv"
+                            android:background="@color/blueColorCode" />
+
+                        <RelativeLayout
+                            android:id="@+id/loginTwitterFbSignUp_rl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/orRightSignUp_view"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/round_corner_rectangle">
+
+                            <RelativeLayout
+                                android:id="@+id/loginTwitterSignUp_rl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/separatorTwitterFbSignUp_view">
+
+                                <ImageView
+                                    android:id="@+id/twitterSignUp_iv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/twitter"/>
+
+                                <TextView
+                                    android:id="@+id/twitterSignUp_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_toRightOf="@+id/twitterSignUp_iv"
+                                    android:padding="5dp"
+                                    android:text="@string/signup_withtwitter"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:id="@+id/separatorTwitterFbSignUp_view"
+                                android:layout_width="1dp"
+                                android:layout_height="40dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/blueColorCode" />
+
+                            <RelativeLayout
+                                android:id="@+id/loginFbSignUp_rl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_toRightOf="@+id/separatorTwitterFbSignUp_view">
+
+                                <ImageView
+                                    android:id="@+id/fbSignUp_iv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:src="@drawable/facebook"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/loginFbSignUp_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_toRightOf="@+id/fbSignUp_iv"
+                                    android:padding="5dp"
+                                    android:text="@string/signUp_withfacebook"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+                    </LinearLayout>
+                </ScrollView>
+
 
             </RelativeLayout>
             
