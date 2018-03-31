@@ -8,5 +8,7 @@ public interface ApiLink {
 
     String ROOT_URL = "http://hunaniinfotech.com/public/mehul/index.php/Api/";
     String LOGIN_URL = "login";
+    String REGISTER_URL = "register";
+
 
 }
