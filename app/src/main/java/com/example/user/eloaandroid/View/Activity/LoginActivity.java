@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText emailAddress_et,password_et;
 
     //shared Preference
-    String EmailId, current_password, Login_type;
+    String EmailId, current_password, Login_type, userId;
     public static LoginBean loginBean;
 
     //SignUp Form
@@ -159,6 +159,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edit.putString("email_id", EmailId);
         edit.putString("password", current_password);
         edit.putString("login_type", Login_type);
+        edit.putString("user_id", userId);
         edit.commit();
     }
 
@@ -198,8 +199,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         public void onResponse(RegisterBean res) {
                             if (res.isStatus())
                             {
-                                //startActivity(new Intent(LoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                                Toast.makeText(LoginActivity.this, "You are Successfully Registered", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                Toast.makeText(LoginActivity.this, "Registration successful.", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 Toast.makeText(LoginActivity.this,"Something went wrong!! Not Registered",Toast.LENGTH_SHORT).show();
@@ -293,6 +294,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 EmailId = loginBean.getData().get(0).getEmail();
                                 current_password = password_et.getText().toString();
                                 Login_type = login_type;
+                                userId = res.getData().get(0).getId();
+
                                 sharedPreferenceData();
 
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));

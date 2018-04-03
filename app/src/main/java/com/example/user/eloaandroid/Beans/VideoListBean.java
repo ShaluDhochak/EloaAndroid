@@ -4,67 +4,108 @@ package com.example.user.eloaandroid.Beans;
   Created by Shalu Dhochak on 3/5/2018.
  */
 
+import java.util.ArrayList;
+
 public class VideoListBean {
-    public String getVideoHeading() {
-        return videoHeading;
+
+    public boolean status;
+    public ArrayList<Data> data;
+
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setVideoHeading(String videoHeading) {
-        this.videoHeading = videoHeading;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
-    public String getTime() {
-        return time;
+    public ArrayList<Data> getData() {
+        return data;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setData(ArrayList<Data> data) {
+        this.data = data;
     }
 
-    public String getDay() {
-        return day;
+    public static class Data{
+        String id, user_id, video, keyword, title, description, location, date;
+
+        public Data(String id, String user_id, String video, String keyword, String title, String description, String location, String date) {
+            this.id = id;
+            this.user_id = user_id;
+            this.video = video;
+            this.keyword = keyword;
+            this.title = title;
+            this.description = description;
+            this.location = location;
+            this.date = date;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getUser_id() {
+            return user_id;
+        }
+
+        public void setUser_id(String user_id) {
+            this.user_id = user_id;
+        }
+
+        public String getVideo() {
+            return video;
+        }
+
+        public void setVideo(String video) {
+            this.video = video;
+        }
+
+        public String getKeyword() {
+            return keyword;
+        }
+
+        public void setKeyword(String keyword) {
+            this.keyword = keyword;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getLocation() {
+            return location;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getKeywords() {
-        return keywords;
-    }
-
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
-    }
-
-    public VideoListBean(String videoHeading, String time, String day, String title, String description, String keywords) {
-        this.videoHeading = videoHeading;
-        this.time = time;
-        this.day = day;
-        this.title = title;
-        this.description = description;
-        this.keywords = keywords;
-    }
-
-    public VideoListBean(){
-
-    }
-
-    String videoHeading, time, day,title, description, keywords;
 }

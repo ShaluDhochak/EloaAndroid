@@ -1,6 +1,13 @@
 package com.example.user.eloaandroid.View.Adapter;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
+import android.media.ThumbnailUtils;
+import android.os.Build;
+import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +18,10 @@ import android.widget.TextView;
 
 import com.example.user.eloaandroid.Beans.VideoListBean;
 import com.example.user.eloaandroid.R;
+import com.example.user.eloaandroid.View.Activity.VideoPlayActivity;
+import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,15 +29,15 @@ import java.util.List;
  */
 
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyViewHolder> {
-    private List<VideoListBean> moviesList;
+    private List<VideoListBean.Data> moviesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView VideoHeading_txtView, VideoSubHeading_txtView;
-        ImageView profileImg_iv, hideDetail_iv, showDetail_iv;
+        ImageView profileImg_iv, hideDetail_iv, showDetail_iv, Video_imgView;
         RelativeLayout videoDescription;
 
         //Video Desciprion
-        TextView titleDetail_tv,descriptionDetail_tv,keywordsDetail_tv;
+        TextView titleDetail_tv, descriptionDetail_tv, keywordsDetail_tv;
 
 
         @SuppressLint("CutPasteId")
@@ -38,6 +48,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
             profileImg_iv = (ImageView) view.findViewById(R.id.profileImg_iv);
             showDetail_iv = (ImageView) view.findViewById(R.id.showDetail_iv);
             hideDetail_iv = (ImageView) view.findViewById(R.id.hideDetail_iv);
+            Video_imgView = view.findViewById(R.id.Video_imgView);
 
             videoDescription = (RelativeLayout) view.findViewById(R.id.videoDescription);
 
@@ -47,7 +58,10 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
         }
     }
 
-    public VideoListAdapter(List<VideoListBean> moviesList) {
+    Context context;
+
+    public VideoListAdapter(Context context, List<VideoListBean.Data> moviesList) {
+        this.context = context;
         this.moviesList = moviesList;
     }
 
@@ -59,15 +73,56 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
         return new MyViewHolder(itemView);
     }
 
+    public static Bitmap retriveVideoFrameFromVideo(String videoPath)
+            throws Throwable {
+        Bitmap bitmap = null;
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            mediaMetadataRetriever = new MediaMetadataRetriever();
+            if (Build.VERSION.SDK_INT >= 14)
+                mediaMetadataRetriever.setDataSource(videoPath, new HashMap<String, String>());
+            else
+                mediaMetadataRetriever.setDataSource(videoPath);
+
+            bitmap = mediaMetadataRetriever.getFrameAtTime(1, MediaMetadataRetriever.OPTION_CLOSEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Throwable(
+                    "Exception in retriveVideoFrameFromVideo(String videoPath)"
+                            + e.getMessage());
+
+        } finally {
+            if (mediaMetadataRetriever != null) {
+                mediaMetadataRetriever.release();
+            }
+        }
+        return bitmap;
+    }
+
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        VideoListBean movie = moviesList.get(position);
-        holder.VideoHeading_txtView.setText(movie.getVideoHeading());
-        holder.VideoSubHeading_txtView.setText(movie.getTime() + " " + movie.getDay());
+        final VideoListBean.Data movie = moviesList.get(position);
+        holder.VideoHeading_txtView.setText(movie.getTitle());
+        holder.VideoSubHeading_txtView.setText(movie.getDate());
 
         holder.titleDetail_tv.setText(movie.getTitle());
         holder.descriptionDetail_tv.setText(movie.getDescription());
-        holder.keywordsDetail_tv.setText(movie.getKeywords());
+        holder.keywordsDetail_tv.setText(movie.getKeyword());
+        //Picasso.get().load(movie.getVideo()).into(holder.Video_imgView);
+        try {
+            holder.Video_imgView.setImageBitmap(retriveVideoFrameFromVideo(movie.getVideo()));
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        holder.Video_imgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, VideoPlayActivity.class);
+                intent.putExtra("path", movie.getVideo());
+                context.startActivity(intent);
+            }
+        });
 
         holder.videoDescription.setVisibility(View.VISIBLE);
         holder.hideDetail_iv.setVisibility(View.VISIBLE);

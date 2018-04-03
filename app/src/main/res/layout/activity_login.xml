@@ -112,6 +112,7 @@
                     android:background="@drawable/textbox"
                     android:padding="10dp"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:textColorHint="@color/blueColorCode"
                     android:textColor="@color/blueColorCode"
                     android:textSize="14sp"

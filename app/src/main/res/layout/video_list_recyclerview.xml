@@ -68,12 +68,11 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/videoHeadingDetails_rl"
-            android:background="@drawable/header_bg"
-            />
+            android:scaleType="fitXY"/>
             <ImageView
                 android:id="@+id/playVideo_iv"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/play_icon"
                 />

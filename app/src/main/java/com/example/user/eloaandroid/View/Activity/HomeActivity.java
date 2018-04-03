@@ -94,8 +94,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_dashboard) {
-          //  Intent intent = new Intent(this, AllVideosActivity.class);
-          //  startActivity(intent);
+           // Intent intent = new Intent(this, AllVideosActivity.class);
+           // startActivity(intent);
 
             dashboardFragment();
             // Handle the camera action
@@ -112,8 +112,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent profileIntent = new Intent(this, MyProfileActivity.class);
             startActivity(profileIntent);
         } else if (id == R.id.nav_videos) {
-            Intent intent = new Intent(this, ReviewActivity.class);
-            startActivity(intent);
+            dashboardFragment();
+            // Intent intent = new Intent(this, ReviewActivity.class);
+           // startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
