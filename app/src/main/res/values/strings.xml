@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">EloaAndroid</string>
+    <string name="facebook_app_id">1024006461084419</string>
+    <string name="title_activity_main2">UserProfile</string>
+
 
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
@@ -36,7 +39,7 @@
     <string name="location">Location: </string>
     <string name="editVideoInfo">EDIT VIDEO INFORMATION</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

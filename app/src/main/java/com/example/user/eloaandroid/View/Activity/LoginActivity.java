@@ -20,6 +20,15 @@ import com.example.user.eloaandroid.Utils.ApiLink;
 import com.example.user.eloaandroid.Utils.Connectivity;
 import com.example.user.eloaandroid.Utils.GSONRequest;
 import com.example.user.eloaandroid.Utils.Utilities;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,10 +50,63 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     RelativeLayout loginFb_rl;
 
+    //facebook integration code
+    private CallbackManager callbackManager;
+    private AccessTokenTracker accessTokenTracker;
+    private ProfileTracker profileTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
+
+        //Fb Intergration code
+        callbackManager = CallbackManager.Factory.create();
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken currentToken) {
+
+            }
+        };
+
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+            //    nextActivity(newProfile);
+            }
+        };
+
+        accessTokenTracker.startTracking();
+        profileTracker.startTracking();
+
+        //Login via Fb
+        loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
+
+
+        //loginFb_rl.setOnClickListener(this);
+
+        FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Profile profile = Profile.getCurrentProfile();
+              //  nextActivity(profile);
+                Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+
+        };
+
 
         //singInHeading
         signInHeading_tv = (TextView) findViewById(R.id.signInHeading_tv);
@@ -79,10 +141,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signIn_btn = (TextView) findViewById(R.id.signIn_btn);
         signIn_btn.setOnClickListener(this);
 
-        //Login via Fb
-        loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
-        loginFb_rl.setOnClickListener(this);
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Profile profile = Profile.getCurrentProfile();
+        nextActivity(profile);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
+    protected void onStop(){
+        super.onStop();
+        accessTokenTracker.stopTracking();
+        profileTracker.stopTracking();
+    }
+
+    @Override
+    protected  void onActivityResult(int requestCode, int responseCode, Intent intent){
+        super.onActivityResult(requestCode, responseCode, intent);
+
+        callbackManager.onActivityResult(requestCode, responseCode, intent);
+    }
+
+   private void nextActivity(Profile profile){
+        if(profile!= null){
+            Intent profileIntent = new Intent(LoginActivity.this, FacebookProfileActivity.class);
+            profileIntent.putExtra("name", profile.getFirstName());
+            profileIntent.putExtra("surname", profile.getLastName());
+            profileIntent.putExtra("imageUrl", profile.getProfilePictureUri(200, 200));
+        }
+   }
 
     @Override
     public void onClick(View v) {

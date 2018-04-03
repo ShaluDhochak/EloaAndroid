@@ -6,8 +6,11 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.example.permission.READ" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -23,39 +26,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activity.LoginActivity"
+        <activity
+            android:name=".View.Activity.LoginActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".View.Activity.HomeActivity"
-
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-
-        <activity android:name=".View.Activity.AllVideosActivity"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden"></activity>
-
-
-        <activity android:name=".View.Activity.StartRecordingActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".View.Activity.AllVideosActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
-            >
-        </activity>
-        <activity android:name=".View.Activity.MyProfileActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".View.Activity.StartRecordingActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
-        <activity android:name=".View.Activity.VideoDetailActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".View.Activity.MyProfileActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity android:name=".View.Activity.ReviewActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".View.Activity.VideoDetailActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".View.Activity.ReviewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".View.Activity.FacebookProfileActivity"></activity>
     </application>
 
 </manifest>

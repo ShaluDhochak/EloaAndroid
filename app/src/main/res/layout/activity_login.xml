@@ -226,6 +226,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_toRightOf="@+id/separatorTwitterFb_view">
 
+
                         <ImageView
                             android:id="@+id/fb_iv"
                             android:layout_width="20dp"
@@ -247,7 +248,7 @@
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
