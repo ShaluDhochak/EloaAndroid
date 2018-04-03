@@ -1,6 +1,7 @@
 package com.example.user.eloaandroid.View.Activity;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import com.example.user.eloaandroid.R;
 import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
+
+import java.io.InputStream;
 
 public class FacebookProfileActivity extends AppCompatActivity {
 
@@ -67,12 +70,21 @@ public class FacebookProfileActivity extends AppCompatActivity {
             String urldisplay = urls[0];
             Bitmap mIconll = null;
             try{
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIconll = BitmapFactory.decodeStream(in);
 
             }catch(Exception e){
-                Log.e("Error")
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
             }
 
-            return null;
+            return mIconll;
+        }
+
+        protected void onPostExecute(Bitmap result){
+            bmImage.setImageBitmap(result);
         }
     }
+
+
 }

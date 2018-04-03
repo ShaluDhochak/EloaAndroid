@@ -29,6 +29,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,6 +56,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
 
+    LoginButton loginBtnFB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         profileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-            //    nextActivity(newProfile);
+                nextActivity(newProfile);
             }
         };
 
@@ -82,8 +85,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         profileTracker.startTracking();
 
         //Login via Fb
-        loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
-
+       // loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
+        loginBtnFB = (LoginButton)findViewById(R.id.loginBtnFB);
 
         //loginFb_rl.setOnClickListener(this);
 
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Profile profile = Profile.getCurrentProfile();
-              //  nextActivity(profile);
+                nextActivity(profile);
                 Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
             }
 
@@ -106,6 +109,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
 
         };
+        loginBtnFB.setReadPermissions("user_friends");
+        loginBtnFB.registerCallback(callbackManager, callback);
 
 
         //singInHeading
@@ -186,9 +191,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 getLoginFunction();
                 break;
 
+            /*
             case R.id.loginFb_rl:
                 getLoginFbFunction();
                 break;
+
+                */
 
             case R.id.signUpHeading_tv:
                 signUpHeader_rl.setVisibility(View.VISIBLE);

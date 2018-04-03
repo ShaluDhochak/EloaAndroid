@@ -227,6 +227,10 @@
                         android:layout_alignParentRight="true"
                         android:layout_toRightOf="@+id/separatorTwitterFb_view">
 
+                        <com.facebook.login.widget.LoginButton
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:id="@+id/loginBtnFB"/>
 
                         <ImageView
                             android:id="@+id/fb_iv"
@@ -235,6 +239,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="10dp"
                             android:src="@drawable/facebook"
+                            android:visibility="gone"
                             />
 
                         <TextView
@@ -249,7 +254,9 @@
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="12sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            />
 
                     </RelativeLayout>
 
