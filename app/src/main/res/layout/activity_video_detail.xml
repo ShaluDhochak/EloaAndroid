@@ -79,13 +79,18 @@
                             android:src="@drawable/share_icon" />
 
                     </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/VideoDetailVideo_rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/videoDetailHeadingDetails_rl"
+                        >
 
-                    <ImageView
-                        android:id="@+id/VideoDetail_imgView"
+                    <VideoView
+                        android:id="@+id/VideoDetail_videoView"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_below="@+id/videoDetailHeadingDetails_rl"
-                        android:src="@drawable/header_bg" />
+                         android:src="@drawable/header_bg" />
 
                     <ImageView
                         android:id="@+id/playVideoDetail_iv"
@@ -94,16 +99,22 @@
                         android:src="@drawable/play_icon"
                         android:layout_centerInParent="true"
                         />
+                    </RelativeLayout>
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
+            <RelativeLayout
+                android:id="@+id/previewVideoInfo_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/videoDetail_cardView"
+                >
             <View
                 android:id="@+id/separtorBelowVideoDetail_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/videoDetail_cardView"
-                android:layout_marginLeft="10dp"
+                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@android:color/white" />
 
@@ -283,12 +294,19 @@
 
 
             </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/editVideoDetail_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/previewVideoInfo_rl"
+                >
 
             <View
                 android:id="@+id/separtorBelowVideoDetailInfo_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/locationVideoInfoPreview_rl"
+
                 android:layout_margin="10dp"
                 android:background="@android:color/white" />
 
@@ -617,6 +635,7 @@
                 </RelativeLayout>
 
 
+            </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>
 

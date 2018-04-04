@@ -15,9 +15,10 @@ import com.example.user.eloaandroid.R;
 public class StartRecordingActivity extends AppCompatActivity implements View.OnClickListener{
 
     static final int REQUEST_VIDEO_CAPTURE = 0;
-    TextView startRecordingImage_tv;
+    TextView startRecordingImage_tv, continueStep_tv;
     VideoView videoViewRecording_vv;
     ImageView playIcon_iv;
+    Uri videoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class StartRecordingActivity extends AppCompatActivity implements View.On
         startRecordingImage_tv.setOnClickListener(this);
 
         videoViewRecording_vv = (VideoView) findViewById(R.id.videoViewRecording_vv);
+
+        continueStep_tv = (TextView) findViewById(R.id.continueStep_tv);
+        continueStep_tv.setOnClickListener(this);
         playIcon_iv = (ImageView) findViewById(R.id.playIcon_iv);
         playIcon_iv.setOnClickListener(this);
 
@@ -43,6 +47,13 @@ public class StartRecordingActivity extends AppCompatActivity implements View.On
             case R.id.playIcon_iv:
                 videoViewRecording_vv.start();
                 break;
+
+            case R.id.continueStep_tv:
+                Intent intent = new Intent(StartRecordingActivity.this,VideoDetailActivity.class );
+                intent.putExtra("image_url", videoUri);
+                startActivity(intent);
+
+                break;
         }
     }
 
@@ -56,7 +67,7 @@ public class StartRecordingActivity extends AppCompatActivity implements View.On
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
-            Uri videoUri = intent.getData();
+            videoUri = intent.getData();
             videoViewRecording_vv.setVideoURI(videoUri);
         }
     }

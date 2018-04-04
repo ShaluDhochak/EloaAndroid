@@ -42,7 +42,17 @@
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
-            android:src="@drawable/right_menu"/>
+            android:src="@drawable/right_menu"
+            />
+
+        <TextView
+            android:id="@+id/saveHeader_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:text="Save"
+            />
 
     </RelativeLayout>
 

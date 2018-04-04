@@ -31,7 +31,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     SharedPreferences pref;
     String emailId, password, login_type;
 
-
     //Profile String Text
     TextView nameString_tv,emailString_tv,addressString_tv,lawFirmNameString_tv,phoneString_tv,areaOfLawString_tv;
 
@@ -45,7 +44,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         headerRight_iv= (ImageView) findViewById(R.id.headerRight_iv);
         headingText_tv= (TextView) findViewById(R.id.headingText_tv);
 
-
         //Profile String
         nameString_tv =(TextView) findViewById(R.id.nameString_tv);
         emailString_tv =(TextView) findViewById(R.id.emailString_tv);
@@ -55,7 +53,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         areaOfLawString_tv =(TextView) findViewById(R.id.areaOfLawString_tv);
 
        // setProfileData();
-
         headerRight_iv.setVisibility(View.GONE);
         headerBack_iv.setOnClickListener(this);
         headingText_tv.setText("Profile");

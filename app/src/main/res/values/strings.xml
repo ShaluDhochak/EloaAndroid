@@ -6,6 +6,8 @@
 
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
+    <string name="signUpFb">SignUp with Facebook</string>
+
     <string name="emailAddress">Email Address</string>
     <string name="password">Password</string>
     <string name="or">OR</string>
@@ -27,6 +29,7 @@
     <string name="address">Address</string>
     <string name="phone">Phone</string>
     <string name="law_firm_name">Law Firm Name</string>
+    <string name="area_of_low_id">Area of Low Id</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="signup_withtwitter">SignUp with Twitter</string>
     <string name="signUp_withfacebook">SignUp with Facebook</string>

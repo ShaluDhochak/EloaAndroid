@@ -52,7 +52,7 @@
                 android:layout_below="@+id/startRecordingImage_tv">
 
                 <TextView
-                    android:id="@+id/previousStep_tv"
+                    android:id="@+id/stepOver_tv"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
@@ -60,7 +60,7 @@
                     android:layout_toLeftOf="@+id/playIcon_iv"
                     android:background="@drawable/btn_small_record"
                     android:padding="10dp"
-                    android:text="Previous Step"
+                    android:text="Step Over"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
@@ -78,7 +78,7 @@
                     android:src="@drawable/play_icon" />
 
                 <TextView
-                    android:id="@+id/skipThisStep_tv"
+                    android:id="@+id/continueStep_tv"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
@@ -86,7 +86,8 @@
                     android:layout_toRightOf="@+id/playIcon_iv"
                     android:background="@drawable/btn_small_record"
                     android:padding="10dp"
-                    android:text="Skip This Step"
+                    android:text="Continue"
+                    android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />

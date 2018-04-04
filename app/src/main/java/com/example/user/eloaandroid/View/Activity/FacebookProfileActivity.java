@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.user.eloaandroid.R;
 import com.facebook.FacebookSdk;
-import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
 import java.io.InputStream;
@@ -30,9 +29,9 @@ public class FacebookProfileActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(this);
         setContentView(R.layout.activity_facebook_profile);
 
-        ShareLinkContent content = new ShareLinkContent.Builder().build();
+      //  ShareLinkContent content = new ShareLinkContent.Builder().build();
 
-        sharedDialog.show(content);
+       // sharedDialog.show(content);
         initialiseUI();
 
     }
@@ -50,6 +49,8 @@ public class FacebookProfileActivity extends AppCompatActivity {
         String name  =inBundle.get("name").toString();
         String surname = inBundle.get("surname").toString();
         String imageUrl = inBundle.get("imageUrl").toString();
+
+        nameUserFb_tv.setText(name + " " + surname);
 
         new FacebookProfileActivity.DownloadImage((ImageView)findViewById(R.id.userProfile)).execute(imageUrl);
     }
@@ -72,7 +73,6 @@ public class FacebookProfileActivity extends AppCompatActivity {
             try{
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIconll = BitmapFactory.decodeStream(in);
-
             }catch(Exception e){
                 Log.e("Error", e.getMessage());
                 e.printStackTrace();
