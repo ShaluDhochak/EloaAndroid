@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ import com.example.user.eloaandroid.R;
 import com.example.user.eloaandroid.Utils.ApiLink;
 import com.example.user.eloaandroid.Utils.Connectivity;
 import com.example.user.eloaandroid.Utils.GSONRequest;
+import com.example.user.eloaandroid.Utils.PrefUtil;
 import com.example.user.eloaandroid.Utils.Utilities;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -27,11 +29,17 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,14 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText areaOfLawIdSignUp_et;
     TextView sighUp_btn, signUp_tv, sighUpFb_btn;
 
-    RelativeLayout loginFb_rl, fbSignUp_rl;
-
-    //facebook integration code
-    private CallbackManager callbackManager;
-    private AccessTokenTracker accessTokenTracker;
-    private ProfileTracker profileTracker;
-
-    LoginButton loginBtnFB;
+    RelativeLayout fbSignUp_rl;
 
     //SignUp Fb login
     ImageView fb_iv;
@@ -68,13 +69,71 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     SharedPreferences pref;
     String emailId_sharedPref, password_sharedPref, login_type_sharedPref, social_login_tyoe_sharedpref, social_api_sharedPref;
 
+    //Fb implementation
+    LoginButton loginButton;
+    CallbackManager callbackManager;
+    PrefUtil prefUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+
+        callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
+
+        //Login Button for fb
+        loginButton = (LoginButton) findViewById(R.id.facebook_login);
+        //set read permissions from fb
+        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+
+                        String accessToken = loginResult.getAccessToken().getToken();
+
+                        // save accessToken to SharedPreference
+                        prefUtil.saveAccessToken(accessToken);
+
+                        GraphRequest request = GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(),
+                                new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject jsonObject,
+                                                            GraphResponse response) {
+
+                                        // Getting FB User Data
+                                        Bundle facebookData = getFacebookData(jsonObject);
+
+
+                                    }
+                                });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id,first_name,last_name,email,gender");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+                    }
+
+
+                    @Override
+                    public void onCancel () {
+                        Toast.makeText(LoginActivity.this, "Login attempt cancelled", Toast.LENGTH_SHORT).show();
+                      //  Log.d(TAG, "Login attempt cancelled.");
+                    }
+
+                    @Override
+                    public void onError (FacebookException e){
+                        e.printStackTrace();
+                        Toast.makeText(LoginActivity.this, "Login attempt failed", Toast.LENGTH_SHORT).show();
+                     //   Log.d(TAG, "Login attempt failed.");
+                        deleteAccessToken();
+                    }
+                }
+        );
 
         //Fb Intergration code
         fbSignUp_rl = (RelativeLayout) findViewById(R.id.fbSignUp_rl);
@@ -82,69 +141,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         sighUpFb_btn = (TextView) findViewById(R.id.sighUpFb_btn);
         sighUpFb_btn.setOnClickListener(this);
-
-        callbackManager = CallbackManager.Factory.create();
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken currentToken) {
-
-            }
-        };
-
-        profileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-                nextActivity(newProfile);
-            }
-        };
-
-        accessTokenTracker.startTracking();
-        profileTracker.startTracking();
-
-        //Login via Fb
-       // loginFb_rl = (RelativeLayout) findViewById(R.id.loginFb_rl);
-        loginBtnFB = (LoginButton)findViewById(R.id.loginBtnFB);
-
-        fb_iv = (ImageView) findViewById(R.id.fb_iv);
-        loginFb_tv = (TextView) findViewById(R.id.loginFb_tv);
-
-     /*   if (emailId_sharedPref.equals("")){
-            loginBtnFB.setVisibility(View.VISIBLE);
-            fb_iv.setVisibility(View.GONE);
-            loginFb_tv.setVisibility(View.GONE);
-        }else{
-            fb_iv.setVisibility(View.VISIBLE);
-            loginFb_tv.setVisibility(View.VISIBLE);
-            loginBtnFB.setVisibility(View.GONE);
-
-        }
-*/
-        loginFb_tv.setOnClickListener(this);
-        fb_iv.setOnClickListener(this);
-
-         //loginFb_rl.setOnClickListener(this);
-
-        FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Profile profile = Profile.getCurrentProfile();
-                nextActivity(profile);
-              //  Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-            }
-
-        };
-        loginBtnFB.setReadPermissions("user_friends");
-        loginBtnFB.registerCallback(callbackManager, callback);
 
         //singInHeading
         signInHeading_tv = (TextView) findViewById(R.id.signInHeading_tv);
@@ -183,49 +179,65 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         signIn_btn = (TextView) findViewById(R.id.signIn_btn);
         signIn_btn.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-        Profile profile = Profile.getCurrentProfile();
-        nextActivity(profile);
-    }
+}
 
     @Override
-    protected void onPause(){
-        super.onPause();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    protected void onStop(){
-        super.onStop();
-        accessTokenTracker.stopTracking();
-        profileTracker.stopTracking();
+
+    private void deleteAccessToken() {
+        AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(
+                    AccessToken oldAccessToken,
+                    AccessToken currentAccessToken) {
+
+                if (currentAccessToken == null){
+                    //User logged out
+                    prefUtil.clearToken();
+                    LoginManager.getInstance().logOut();
+                }
+            }
+        };
     }
+    private Bundle getFacebookData(JSONObject object) {
+        Bundle bundle = new Bundle();
 
-    @Override
-    protected  void onActivityResult(int requestCode, int responseCode, Intent intent){
-        super.onActivityResult(requestCode, responseCode, intent);
+        try {
+            String id = object.getString("id");
+            URL profile_pic;
+            try {
+                profile_pic = new URL("https://graph.facebook.com/" + id + "/picture?type=large");
+                Log.i("profile_pic", profile_pic + "");
+                bundle.putString("profile_pic", profile_pic.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return null;
+            }
 
-        callbackManager.onActivityResult(requestCode, responseCode, intent);
+            bundle.putString("idFacebook", id);
+            if (object.has("first_name"))
+                bundle.putString("first_name", object.getString("first_name"));
+            if (object.has("last_name"))
+                bundle.putString("last_name", object.getString("last_name"));
+            if (object.has("email"))
+                bundle.putString("email", object.getString("email"));
+            if (object.has("gender"))
+                bundle.putString("gender", object.getString("gender"));
+
+
+            prefUtil.saveFacebookUserInfo(object.getString("first_name"),
+                    object.getString("last_name"),object.getString("email"),
+                    object.getString("gender"), profile_pic.toString());
+
+        } catch (Exception e) {
+           // Log.d(Tag, "BUNDLE Exception : "+e.toString());
+        }
+
+        return bundle;
     }
-
-   private void nextActivity(Profile profile){
-        if(profile!= null){
-           /* Intent profileIntent = new Intent(LoginActivity.this, FacebookProfileActivity.class);
-            profileIntent.putExtra("name", profile.getFirstName());
-            profileIntent.putExtra("surname", profile.getLastName());
-            profileIntent.putExtra("imageUrl", profile.getProfilePictureUri(200, 200));
-            startActivity(profileIntent);
-            */
-            signUpHeader_rl.setVisibility(View.VISIBLE);
-            signInHeader_rl.setVisibility(View.GONE);
-            sighUpFb_btn.setVisibility(View.VISIBLE);
-            sighUp_btn.setVisibility(View.GONE);
-            nameAddressSignUp_et.setText(profile.getFirstName() + " "+ profile.getLastName());
-     }
-   }
 
     @Override
     public void onClick(View v) {
@@ -236,13 +248,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 getLoginFunction();
                 break;
 
-            case R.id.loginFb_tv:
-                getLoginFbFunction();
-                break;
 
-            case R.id.fb_iv:
-                getLoginFbFunction();
-                break;
 
             case R.id.signUp_tv:
                 signUpHeader_rl.setVisibility(View.VISIBLE);
@@ -295,13 +301,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.fbSignUp_rl:
 
                 break;
-
-            /*
-            case R.id.loginFb_rl:
-                getLoginFbFunction();
-                break;
-
-                */
 
             case R.id.signUpHeading_tv:
                 signUpHeader_rl.setVisibility(View.VISIBLE);

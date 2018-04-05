@@ -165,9 +165,6 @@ public class VideoDetailActivity extends AppCompatActivity implements View.OnCli
               addAdditional = addAdditionalKeywords_et.getText().toString();
               ownTitle = addYourOwnTitle_et.getText().toString();
               ownDesc = addYourOwnDesc_et.getText().toString();
-
-
-
               ///do api code here for saving video - videopath ???
 
               break;
