@@ -1,6 +1,7 @@
 package com.example.user.eloaandroid.View.Activity;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -37,6 +38,7 @@ public class VideoDetailActivity extends AppCompatActivity implements View.OnCli
     //Showing Video Details
     RelativeLayout previewVideoInfo_rl;
     String location, addAdditional, ownTitle, ownDesc, videopath;
+    Uri videoUri;
 
 
     //ListOf Edit Information
@@ -62,6 +64,8 @@ public class VideoDetailActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void initialiseUI(){
+
+        videoUri = Uri.parse(getIntent().getExtras().getString("video_uri"));
 
         //showing Relative Layout
         previewVideoInfo_rl =(RelativeLayout) findViewById(R.id.previewVideoInfo_rl);
@@ -171,7 +175,7 @@ public class VideoDetailActivity extends AppCompatActivity implements View.OnCli
 
 
           case R.id.playVideoDetail_iv:
-              VideoDetail_videoView.setVideoPath(getIntent().getStringExtra("path"));
+              VideoDetail_videoView.setVideoURI(videoUri);
 
               MediaController mediaController = new MediaController(this);
               mediaController.setMediaPlayer(VideoDetail_videoView);

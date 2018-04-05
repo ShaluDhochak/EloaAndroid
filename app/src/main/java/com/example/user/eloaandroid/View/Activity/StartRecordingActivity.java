@@ -50,7 +50,7 @@ public class StartRecordingActivity extends AppCompatActivity implements View.On
 
             case R.id.continueStep_tv:
                 Intent intent = new Intent(StartRecordingActivity.this,VideoDetailActivity.class );
-                intent.putExtra("image_url", videoUri);
+                intent.putExtra("video_uri", videoUri.toString());
                 startActivity(intent);
 
                 break;

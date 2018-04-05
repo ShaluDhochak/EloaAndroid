@@ -95,8 +95,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         String accessToken = loginResult.getAccessToken().getToken();
 
+
                         // save accessToken to SharedPreference
-                        prefUtil.saveAccessToken(accessToken);
+                  //     prefUtil.saveAccessToken(accessToken);
 
                         GraphRequest request = GraphRequest.newMeRequest(
                                 loginResult.getAccessToken(),
