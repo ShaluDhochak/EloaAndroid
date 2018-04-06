@@ -3,10 +3,12 @@
     <string name="facebook_app_id">204984990233862</string>
     <string name="title_activity_main2">UserProfile</string>
 
+    <string name="facebook_login">Login With Facebook</string>
+    <string name="facebook_signUp">SignUp with Facebook</string>
+    <string name="facebook_logout">Logout</string>
 
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
-    <string name="signUpFb">SignUp with Facebook</string>
 
     <string name="emailAddress">Email Address</string>
     <string name="password">Password</string>

@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,15 +61,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     RelativeLayout fbSignUp_rl;
 
     //SignUp Fb login
-    ImageView fb_iv;
-    TextView loginFb_tv;
+    String username_fb,emailId_fb,login_type_fb,social_login_tyoe_fb ,social_api_fb;
 
     //Shared Preference
     SharedPreferences pref;
     String emailId_sharedPref, password_sharedPref, login_type_sharedPref, social_login_tyoe_sharedpref, social_api_sharedPref;
 
     //Fb implementation
-    LoginButton loginButton;
+    LoginButton loginButton, facebook_sinUp;
     CallbackManager callbackManager;
     PrefUtil prefUtil;
 
@@ -85,16 +83,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //Login Button for fb
         loginButton = (LoginButton) findViewById(R.id.facebook_login);
-        //set read permissions from fb
+        facebook_sinUp = (LoginButton) findViewById(R.id.facebook_sinUp);
+
+         //set read permissions from fb
         loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
+        facebook_sinUp.setReadPermissions(Arrays.asList("public_profile", "email"));
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
 
-
                         String accessToken = loginResult.getAccessToken().getToken();
-
 
                         // save accessToken to SharedPreference
                   //     prefUtil.saveAccessToken(accessToken);
@@ -103,13 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 loginResult.getAccessToken(),
                                 new GraphRequest.GraphJSONObjectCallback() {
                                     @Override
-                                    public void onCompleted(JSONObject jsonObject,
-                                                            GraphResponse response) {
-
+                                    public void onCompleted(JSONObject jsonObject, GraphResponse response) {
                                         // Getting FB User Data
                                         Bundle facebookData = getFacebookData(jsonObject);
-
-
                                     }
                                 });
 
@@ -131,6 +126,48 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         e.printStackTrace();
                         Toast.makeText(LoginActivity.this, "Login attempt failed", Toast.LENGTH_SHORT).show();
                      //   Log.d(TAG, "Login attempt failed.");
+                        deleteAccessToken();
+                    }
+                }
+        );
+
+        facebook_sinUp.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                        String accessToken = loginResult.getAccessToken().getToken();
+
+                        // save accessToken to SharedPreference
+                        //     prefUtil.saveAccessToken(accessToken);
+
+                        GraphRequest request = GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(),
+                                new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject jsonObject, GraphResponse response) {
+                                        // Getting FB User Data
+                                        Bundle facebookData = getSignUpFacebookData(jsonObject);
+
+                                    }
+                                });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id,first_name,last_name,email,gender");
+                        request.setParameters(parameters);
+                        request.executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel () {
+                        Toast.makeText(LoginActivity.this, "Login attempt cancelled", Toast.LENGTH_SHORT).show();
+                        //  Log.d(TAG, "Login attempt cancelled.");
+                    }
+
+                    @Override
+                    public void onError (FacebookException e){
+                        e.printStackTrace();
+                        Toast.makeText(LoginActivity.this, "Login attempt failed", Toast.LENGTH_SHORT).show();
+                        //   Log.d(TAG, "Login attempt failed.");
                         deleteAccessToken();
                     }
                 }
@@ -180,13 +217,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         signIn_btn = (TextView) findViewById(R.id.signIn_btn);
         signIn_btn.setOnClickListener(this);
-}
+    }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
 
     private void deleteAccessToken() {
         AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
@@ -228,13 +267,66 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (object.has("gender"))
                 bundle.putString("gender", object.getString("gender"));
 
+            username_fb = object.getString("first_name") + " "+ object.getString("last_name");
+            emailId_fb =object.getString("email");
+            login_type_fb = "2";
+            social_login_tyoe_fb = "fb";
+            social_api_fb =id;
+
 
             prefUtil.saveFacebookUserInfo(object.getString("first_name"),
                     object.getString("last_name"),object.getString("email"),
                     object.getString("gender"), profile_pic.toString());
 
+
+
         } catch (Exception e) {
            // Log.d(Tag, "BUNDLE Exception : "+e.toString());
+        }
+
+        return bundle;
+    }
+
+    private Bundle getSignUpFacebookData(JSONObject object) {
+        Bundle bundle = new Bundle();
+
+        try {
+            String id = object.getString("id");
+            URL profile_pic;
+            try {
+                profile_pic = new URL("https://graph.facebook.com/" + id + "/picture?type=large");
+                Log.i("profile_pic", profile_pic + "");
+                bundle.putString("profile_pic", profile_pic.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return null;
+            }
+
+            bundle.putString("idFacebook", id);
+            if (object.has("first_name"))
+                bundle.putString("first_name", object.getString("first_name"));
+            if (object.has("last_name"))
+                bundle.putString("last_name", object.getString("last_name"));
+            if (object.has("email"))
+                bundle.putString("email", object.getString("email"));
+            if (object.has("gender"))
+                bundle.putString("gender", object.getString("gender"));
+
+            username_fb = object.getString("first_name") + " "+ object.getString("last_name");
+            emailId_fb =object.getString("email");
+            login_type_fb = "2";
+            social_login_tyoe_fb = "fb";
+            social_api_fb =id;
+
+            getFbSignUpFunction(username_fb, emailId_fb, social_login_tyoe_fb, social_api_fb, login_type_fb);
+
+               /* prefUtil.saveFacebookUserInfo(object.getString("first_name"),
+                        object.getString("last_name"),object.getString("email"),
+                        object.getString("gender"), profile_pic.toString());
+                */
+
+        } catch (Exception e) {
+            // Log.d(Tag, "BUNDLE Exception : "+e.toString());
         }
 
         return bundle;
@@ -254,49 +346,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.signUp_tv:
                 signUpHeader_rl.setVisibility(View.VISIBLE);
                 signInHeader_rl.setVisibility(View.GONE);
-                break;
-
-            case R.id.sighUpFb_btn:
-                if (nameAddressSignUp_et.getText().toString().trim().length()>0){
-                    if (emailAddressSignUp_et.getText().toString().trim().length()>0 ) {
-                        if (isEmailValid(emailAddressSignUp_et.getText().toString().trim())) {
-                            if (addressSignUp_et.getText().toString().trim().length()>0){
-                                if ((phoneSignUp_et.getText().toString().trim().length()>0) && (phoneSignUp_et.getText().toString().length()==10) ){
-                                    if (lawFirmNameSignUp_et.getText().toString().trim().length()>0){
-                                        if (areaOfLawIdSignUp_et.getText().toString().trim().length()>0) {
-                                            if (passwordSignUp_et.getText().toString().trim().length() > 0) {
-                                                if (confirmPasswordasswordSignUp_et.getText().toString().trim().length() > 0) {
-                                                    if ((passwordSignUp_et.getText().toString()).equals(confirmPasswordasswordSignUp_et.getText().toString())) {
-                                                        getFbSignUpFunction();
-                                                    } else {
-                                                        Toast.makeText(this, "Password must be Same as Confirm Password.", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                } else {
-                                                    Toast.makeText(this, "Please enter Confirm Password.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } else {
-                                                Toast.makeText(this, "Please enter Password.", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }else{
-                                            Toast.makeText(this, "Please enter Area of Low Id", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }else{
-                                        Toast.makeText(this, "Please enter Law Firm Name.", Toast.LENGTH_SHORT).show();
-                                    }
-                                }else{
-                                    Toast.makeText(this, "Please enter contact no of 10 digit.", Toast.LENGTH_SHORT).show();
-                                }
-                            }else{
-                                Toast.makeText(this, "Please enter Address.", Toast.LENGTH_SHORT).show();
-                            }
-                        }else{
-                            Toast.makeText(this, "Email Address must contain @ and .", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(this, "Please enter Email Address.", Toast.LENGTH_SHORT).show();
-                    }
-                }else
-                    Toast.makeText(this, "First login from Facebook..", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.fbSignUp_rl:
@@ -435,18 +484,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Utilities.internetConnectionError(LoginActivity.this);
     }
 
-    private void getFbSignUpFunction(){
+    private void getFbSignUpFunction(String name1, String email1, String social_login_type1, String social_api_fb1, String login_type1){
         if (Connectivity.isConnected(LoginActivity.this)) {
 
-            String name = nameAddressSignUp_et.getText().toString().trim();
-            String email =emailAddressSignUp_et.getText().toString().trim() ;
-            String address = addressSignUp_et.getText().toString().trim();
-            String law_firm_name = lawFirmNameSignUp_et.getText().toString().trim();
-            String phone = phoneSignUp_et.getText().toString().trim();
-            String area_of_low_id = areaOfLawIdSignUp_et.getText().toString().trim();
-            String password = passwordSignUp_et.getText().toString().trim();
-             String social_login_type = "fb";
-            String social_type = "11";
+           // prefUtil.getFacebookUserInfo();
+
+            String name =name1;
+            String email =email1;
+            String address = "";
+            String law_firm_name ="";
+            String phone = "";
+            String area_of_low_id = "";
+            String password = "";
+            String social_login_type = social_login_type1;
+            String social_type = social_api_fb1;
 
 
             String Url = ApiLink.ROOT_URL + ApiLink.REGISTER_URL;
@@ -464,17 +515,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             map.put("social_api",social_type);
 
 
-      /*      map.put("name", "Shalu Dhochak");
-            map.put("email", "shalu5@gmail.com");
-            map.put("address", "Pune");
-            map.put("law_firm_name", "Headth & fitness");
-            map.put("phone", "7799889988");
-            map.put("password", "123");
-            map.put("area_of_low_id","12");
-            map.put("social_login_type","fb");
-            map.put("social_api","11");
-*/
-
             GSONRequest<RegisterBean> registerGsonRequest = new GSONRequest<RegisterBean>(
                     Request.Method.POST,
                     Url,
@@ -485,7 +525,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (res.isStatus())
                             {
                                 EmailId = res.getData().getEmail().toString();
-                                current_password = res.getData().getPassword().toString();
                                 //current_password = password_et.getText().toString();
                                 Login_type = "2";
                                 userId = res.getData().getUser_id().toString();
@@ -532,7 +571,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (Connectivity.isConnected(LoginActivity.this)) {
 
             pref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-
             emailId_sharedPref =pref.getString("email_id", "");
             password_sharedPref =pref.getString("password", "");
             login_type_sharedPref = pref.getString("login_type", "");

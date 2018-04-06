@@ -88,6 +88,7 @@
                     android:id="@+id/signInHeader_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     >
 
                 <EditText
@@ -227,15 +228,24 @@
                         android:layout_alignParentRight="true"
                         android:layout_toRightOf="@+id/separatorTwitterFb_view">
 
-
                         <com.facebook.login.widget.LoginButton
+                            xmlns:fb="http://schemas.android.com/apk/res-auto"
                             android:id="@+id/facebook_login"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
-                            android:layout_marginTop="30dp"
                             android:layout_centerInParent="true"
+                            fb:com_facebook_login_text="@string/facebook_login"
+                            fb:com_facebook_logout_text="@string/facebook_logout"
+                            android:background="@android:color/white"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:backgroundTint="@color/com_facebook_button_background_color_disabled"
+
                             />
 
                         <ImageView
@@ -314,6 +324,7 @@
                         android:id="@+id/signUpHeader_rl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                        >
 
                         <EditText
@@ -566,6 +577,24 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_toRightOf="@+id/separatorTwitterFbSignUp_view">
 
+                                <com.facebook.login.widget.LoginButton
+                                    xmlns:fb="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/facebook_sinUp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:layout_centerInParent="true"
+                                    fb:com_facebook_login_text="@string/facebook_signUp"
+                                    android:background="@android:color/white"
+                                    android:textAlignment="center"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    android:backgroundTint="@color/com_facebook_button_background_color_disabled"
+                                    />
+
                                 <ImageView
                                     android:id="@+id/fbSignUp_iv"
                                     android:layout_width="20dp"
@@ -573,6 +602,7 @@
                                     android:layout_centerVertical="true"
                                     android:layout_marginLeft="10dp"
                                     android:src="@drawable/facebook"
+                                    android:visibility="gone"
                                     />
 
                                 <TextView
@@ -587,7 +617,9 @@
                                     android:textAlignment="center"
                                     android:textColor="@android:color/black"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    />
 
                             </RelativeLayout>
 

@@ -25,7 +25,6 @@ public class PrefUtil {
         editor.apply(); // This line is IMPORTANT !!!
     }
 
-
     public String getToken() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         return prefs.getString("fb_access_token", null);
