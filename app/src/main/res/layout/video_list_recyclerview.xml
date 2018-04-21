@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:id="@+id/videoListProfile_cardView"
@@ -14,68 +14,67 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-        <RelativeLayout
-            android:id="@+id/videoHeadingDetails_rl"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/blueColorCode"
-            >
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/videoHeadingDetails_rl"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/blueColorCode">
+
+                <ImageView
+                    android:id="@+id/profileImg_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/user_avatar" />
+
+                <TextView
+                    android:id="@+id/VideoHeading_txtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_toRightOf="@+id/profileImg_iv"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/VideoSubHeading_txtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/VideoHeading_txtView"
+                    android:layout_marginTop="5sp"
+                    android:layout_toRightOf="@+id/profileImg_iv"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/shareOnYoutube_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/share_icon" />
+
+            </RelativeLayout>
 
             <ImageView
-                android:id="@+id/profileImg_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/user_avatar"/>
-            <TextView
-                android:id="@+id/VideoHeading_txtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/profileImg_iv"
-                android:layout_marginTop="15sp"
-                android:textColor="@android:color/white"
-                android:text="@string/app_name"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/VideoSubHeading_txtView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/profileImg_iv"
-                android:layout_below="@+id/VideoHeading_txtView"
-                android:layout_marginTop="5sp"
-                android:textColor="@android:color/white"
-                android:text="@string/app_name"
-                android:textSize="10sp"
-                />
+                android:id="@+id/Video_imgView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/videoHeadingDetails_rl"
+                android:scaleType="fitXY"/>
 
-            <ImageView
-                android:id="@+id/shareOnYoutube_iv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/share_icon"
-                android:layout_margin="10dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                />
-
-        </RelativeLayout>
-        <ImageView
-            android:id="@+id/Video_imgView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@+id/videoHeadingDetails_rl"
-            android:scaleType="fitXY"/>
             <ImageView
                 android:id="@+id/playVideo_iv"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/play_icon"
-                />
+                android:src="@drawable/play_icon" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -84,9 +83,9 @@
         android:id="@+id/videoSeparator_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_below="@+id/videoListProfile_cardView"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_below="@+id/videoListProfile_cardView"
         android:background="@android:color/white"
 
         />
@@ -95,155 +94,147 @@
         android:id="@+id/videoDescription_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_below="@+id/videoSeparator_view"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/video_details_box">
+
         <RelativeLayout
             android:id="@+id/showVideoDetails_rl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/videoDescriptionHeading_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Video Description"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:textColor="@color/blueColorCode"
-            />
+            <TextView
+                android:id="@+id/videoDescriptionHeading_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:text="Video Description"
+                android:textColor="@color/blueColorCode"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/showDetail_iv"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
-            android:layout_centerVertical="true"
-            android:src="@drawable/description_arrow_down"/>
+            <ImageView
+                android:id="@+id/showDetail_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
+                android:src="@drawable/description_arrow_down" />
 
             <ImageView
                 android:id="@+id/hideDetail_iv"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
                 android:layout_centerVertical="true"
-                android:src="@drawable/description_arrow_up"/>
+                android:layout_toRightOf="@+id/videoDescriptionHeading_tv"
+                android:src="@drawable/description_arrow_up" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/videoDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/showVideoDetails_rl"
-            >
+            android:layout_below="@+id/showVideoDetails_rl">
+
             <View
                 android:id="@+id/separatorVideoDescription_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/textGreyColor"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                />
+                android:background="@color/textGreyColor" />
 
             <TextView
                 android:id="@+id/titleHeading_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorVideoDescription_view"
+                android:layout_margin="10dp"
                 android:text="Title: "
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/separatorVideoDescription_view"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/titleDetail_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/titleHeading_tv"
                 android:layout_below="@+id/separatorVideoDescription_view"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/titleHeading_tv"
                 android:textColor="@color/textGreyColor"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
+
             <View
                 android:id="@+id/separatorVideoDescription2_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/textGreyColor"
+                android:layout_below="@+id/titleDetail_tv"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/titleDetail_tv"
-                />
+                android:background="@color/textGreyColor" />
 
             <TextView
                 android:id="@+id/descriptionHeading_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorVideoDescription2_view"
+                android:layout_margin="10dp"
                 android:text="Description: "
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/separatorVideoDescription2_view"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descriptionDetail_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/descriptionHeading_tv"
                 android:layout_below="@+id/separatorVideoDescription2_view"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/descriptionHeading_tv"
                 android:textColor="@color/textGreyColor"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <View
                 android:id="@+id/separatorVideoDescription3_view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/textGreyColor"
+                android:layout_below="@+id/descriptionDetail_tv"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@+id/descriptionDetail_tv"
-                />
+                android:background="@color/textGreyColor" />
 
             <TextView
                 android:id="@+id/keywordsHeading_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/separatorVideoDescription3_view"
+                android:layout_margin="10dp"
                 android:text="Keywords: "
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:layout_below="@+id/separatorVideoDescription3_view"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/keywordsDetail_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/keywordsHeading_tv"
                 android:layout_below="@+id/separatorVideoDescription3_view"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/keywordsHeading_tv"
                 android:textColor="@color/textGreyColor"
-                android:textSize="12sp"/>
-            
+                android:textSize="12sp" />
+
         </RelativeLayout>
 
 
     </RelativeLayout>
-
-
-
 
 
 </RelativeLayout>

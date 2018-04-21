@@ -5,6 +5,7 @@ package com.example.user.eloaandroid.Utils;
 */
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -52,6 +53,12 @@ public class PrefUtil {
     public void getFacebookUserInfo(){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         Log.d("MyApp", "Name : "+prefs.getString("fb_name",null)+"\nEmail : "+prefs.getString("fb_email",null));
+    }
+
+    public static String getUserId(Context context) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        String userId = pref.getString("user_id", "1");
+        return userId;
     }
 
 }

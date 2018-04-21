@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.example.user.eloaandroid"
         minSdkVersion 15
         targetSdkVersion 26
@@ -15,6 +16,21 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude  'org/apache/http/annotation/NotThreadSafe.class'
+        exclude 'Lorg/apache/http/client/methods/AbstractExecutionAwareRequest'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    dexOptions {
+        preDexLibraries = false
     }
 }
 
@@ -37,5 +53,8 @@ dependencies {
 
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.google.code.gson:gson:2.3.1'
+    compile files('libs/httpclient-4.3.6.jar')
+    compile files('libs/httpcore-4.3.3.jar')
+    compile files('libs/httpmime-4.3.5.jar')
 
 }

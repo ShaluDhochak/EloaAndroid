@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.user.eloaandroid.Beans.VideoListBean;
 import com.example.user.eloaandroid.R;
@@ -33,7 +35,8 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView VideoHeading_txtView, VideoSubHeading_txtView;
-        ImageView profileImg_iv, hideDetail_iv, showDetail_iv, Video_imgView;
+        ImageView profileImg_iv, hideDetail_iv, showDetail_iv,Video_imgView;
+
         RelativeLayout videoDescription;
 
         //Video Desciprion
@@ -73,31 +76,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
         return new MyViewHolder(itemView);
     }
 
-    public static Bitmap retriveVideoFrameFromVideo(String videoPath)
-            throws Throwable {
-        Bitmap bitmap = null;
-        MediaMetadataRetriever mediaMetadataRetriever = null;
-        try {
-            mediaMetadataRetriever = new MediaMetadataRetriever();
-            if (Build.VERSION.SDK_INT >= 14)
-                mediaMetadataRetriever.setDataSource(videoPath, new HashMap<String, String>());
-            else
-                mediaMetadataRetriever.setDataSource(videoPath);
 
-            bitmap = mediaMetadataRetriever.getFrameAtTime(1, MediaMetadataRetriever.OPTION_CLOSEST);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Throwable(
-                    "Exception in retriveVideoFrameFromVideo(String videoPath)"
-                            + e.getMessage());
-
-        } finally {
-            if (mediaMetadataRetriever != null) {
-                mediaMetadataRetriever.release();
-            }
-        }
-        return bitmap;
-    }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
@@ -109,8 +88,14 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyVi
         holder.descriptionDetail_tv.setText(movie.getDescription());
         holder.keywordsDetail_tv.setText(movie.getKeyword());
         //Picasso.get().load(movie.getVideo()).into(holder.Video_imgView);
+
         try {
-            holder.Video_imgView.setImageBitmap(retriveVideoFrameFromVideo(movie.getVideo()));
+           // Uri uri = Uri.parse(movie.getVideo());
+           // String scheme = uri.getScheme();
+           // holder.Video_imgView.setVideoURI(movie.getVideoUri());
+           // holder.Video_imgView.seekTo(500);
+
+            holder.Video_imgView.setImageBitmap(movie.getBitmap());
         } catch (Throwable e) {
             e.printStackTrace();
         }

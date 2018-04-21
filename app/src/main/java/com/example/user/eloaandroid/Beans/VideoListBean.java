@@ -4,6 +4,9 @@ package com.example.user.eloaandroid.Beans;
   Created by Shalu Dhochak on 3/5/2018.
  */
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+
 import java.util.ArrayList;
 
 public class VideoListBean {
@@ -29,6 +32,7 @@ public class VideoListBean {
 
     public static class Data{
         String id, user_id, video, keyword, title, description, location, date;
+        Bitmap bitmap;
 
         public Data(String id, String user_id, String video, String keyword, String title, String description, String location, String date) {
             this.id = id;
@@ -39,6 +43,14 @@ public class VideoListBean {
             this.description = description;
             this.location = location;
             this.date = date;
+        }
+
+        public Bitmap getBitmap() {
+            return bitmap;
+        }
+
+        public void setBitmap(Bitmap bitmap) {
+            this.bitmap = bitmap;
         }
 
         public String getId() {

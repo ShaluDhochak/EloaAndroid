@@ -103,8 +103,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_about) {
-            Intent videoDetailIntent = new Intent(this,VideoDetailActivity.class);
-            startActivity(videoDetailIntent);
+           // Intent videoDetailIntent = new Intent(this,VideoDetailActivity.class);
+           // startActivity(videoDetailIntent);
         } else if (id == R.id.nav_add_new_testimonial) {
             Intent startRecordingIntent = new Intent(this, StartRecordingActivity.class );
             startActivity(startRecordingIntent);

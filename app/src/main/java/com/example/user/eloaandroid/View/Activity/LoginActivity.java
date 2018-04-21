@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         areaOfLawIdSignUp_et= (EditText) findViewById(R.id.areaOfLawIdSignUp_et);
         passwordSignUp_et = (EditText) findViewById(R.id.passwordSignUp_et);
         confirmPasswordasswordSignUp_et = (EditText) findViewById(R.id.confirmPasswordasswordSignUp_et);
-        clearText();
+      //  clearText();
 
         //SignIn Form
         emailAddress_et = (EditText) findViewById(R.id.emailAddress_et);
@@ -556,14 +556,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void clearText(){
-        nameAddressSignUp_et.setText("Name");
-        emailAddressSignUp_et.setText("Email Address");
-        addressSignUp_et.setText("Address");
-        phoneSignUp_et.setText("Phone");
-        lawFirmNameSignUp_et.setText("Law Firm Name");
-        areaOfLawIdSignUp_et.setText("Area of Low Id");
-        passwordSignUp_et.setText("Password");
-        confirmPasswordasswordSignUp_et.setText("Confirm Password");
+        nameAddressSignUp_et.setText("");
+        emailAddressSignUp_et.setText("");
+        addressSignUp_et.setText("");
+        phoneSignUp_et.setText("");
+        lawFirmNameSignUp_et.setText("");
+        areaOfLawIdSignUp_et.setText("");
+        passwordSignUp_et.setText("");
+        confirmPasswordasswordSignUp_et.setText("");
 
     }
 
